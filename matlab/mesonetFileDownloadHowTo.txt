@@ -1,0 +1,7 @@
+Go to web site
+https://www.mesonet.org/index.php/weather/mesonet_data_files
+Choose date
+Choose station
+Click MTS radio button
+Click MTS hyperlink
+move downloaded file to appropriate directory
