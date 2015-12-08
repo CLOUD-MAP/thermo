@@ -25,12 +25,13 @@ addpath(libDir)
 %% Mesonet data
 if mesoFlag
     procStation = 'wash';
-    % set fetchFlag to 1 if mesonet data should be retrieved automatically (mac only)
-    % set fetchFlag to 0 if the files has alredy been download
+    % set fetchFlag to 1 if mesonet data should be retrieved automatically (mac)
+    % set fetchFlag to 0 if you have download the file by hand (PC) or file
+    % already 
     fetchFlag = 1;
     
     [matFileName, matDataDir, status] = mts2mat(procYear, procMonth, procDay, ...
-        procStation, fetchFlag, baseDir);
+        procStation, batchFlag, baseDir);
 end
 
 %% iMet data
