@@ -28,7 +28,7 @@ diMet = dir([ dataDir '*.mat' ]);
 nFilesiMet = length(diMet);
 for iFile = 1: nFilesiMet
     load([ dataDir diMet(iFile).name ])
-    dataXQArr(iFile) = dataXQ;
+    iMetXQArr(iFile) = iMetXQ;
 end
 
 %% Windsond data
@@ -48,21 +48,55 @@ end
 % Remove the matlab library
 rmpath(libDir)
 
-ind1 = 1;
-ind2 = 5;
+%% Set parameters
 
+if 0
+    ind1 = 1;
+    ind2 = ind1 + 4;
+    t1 = windsondArr(ind1).obsTime;
+    t2 = windsondArr(ind2).obsTime;
+    z1 = windsondArr(ind1).altitude_m;
+    z2 = windsondArr(ind2).altitude_m;
+    T1 = windsondArr(ind1).temperature_C;
+    T2 = windsondArr(ind2).temperature_C;
+    p1 = windsondArr(ind1).pressure_Pa;
+    p2 = windsondArr(ind2).pressure_Pa;
+end
+
+if 1
+    ind1 = 1;
+    ind2 = 2;
+    t1 = iMetXQArr(ind1).obsTime;
+    t2 = iMetXQArr(ind2).obsTime;
+    z1 = iMetXQArr(ind1).altitude_m;
+    z2 = iMetXQArr(ind2).altitude_m;
+    T1 = iMetXQArr(ind1).temperature_C;
+    T2 = iMetXQArr(ind2).temperature_C;
+    p1 = iMetXQArr(ind1).pressure_Pa;
+    p2 = iMetXQArr(ind2).pressure_Pa;
+end
+
+%% Plot
 figure(1)
 clf
-semilogy(windsondArr(ind1).temperature_C, windsondArr(ind1).pressure_Pa, 'b')
+semilogy(T1, p1, 'b')
 hold on
-semilogy(windsondArr(ind2).temperature_C, windsondArr(ind2).pressure_Pa, 'r')
+semilogy(T2, p2, 'r')
 hold off
 set(gca, 'ydir', 'reverse')
 
 figure(2)
 clf
-plot(windsondArr(ind1).obsTime, windsondArr(ind1).altitude_m, 'b')
+plot(t1, p1, 'b')
 hold on
-plot(windsondArr(ind2).obsTime, windsondArr(ind2).altitude_m, 'r')
+plot(t2, p2, 'r')
 hold off
+datetick('x', 15)
 
+figure(3)
+clf
+plot(t1, z1, 'b')
+hold on
+plot(t2, z2, 'r')
+hold off
+datetick('x', 15)
