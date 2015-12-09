@@ -1,27 +1,53 @@
-function [dataXQ, status] = readiMetXQ(dirName, fileName)
+function [iMetXQ, status] = readiMetXQ(dirName, fileName)
+% =====================================================================
+% readiMetXQ
+% [iMetXQ, status] = readiMetXQ(dirName, fileName)
+% =====================================================================
+% Read data in the iMet format
+% Inputs:
+% dirName  = directory where data file exists
+% fileName = name of the iMet data file
+% Outputs
+% iMetXQ   = structured array containing data
+% status   = flag indiating status of read
+% Created 2015-12-09 Phil Chilson
+% Revision history
 
-delimiter = ',';
-formatSpec = '%s%f%f%f%s%s%f%f%f%f%[^\n\r]';
-
+% =====================================================================
+% Check if the file exists
+% =====================================================================
 if ~exist([dirName fileName], 'file')
-    fprintf('*** File not found ... exiting!\n')
-    dataXQ = [];
+    fprintf('*** readiMet: file not found ... exiting!\n')
+    iMetXQ = [];
     status = 0;
     return
 end
 
-fileID = fopen([dirName fileName], 'r');
+% =====================================================================
+% Set the delimeter adn format structure
+% =====================================================================
+delimiter = ',';
+formatSpec = '%s%f%f%f%s%s%f%f%f%f%[^\n\r]';
+
+% =====================================================================
+% =====================================================================
+% Open and read the data
+fileID = fopen([ dirName fileName ], 'r');
+fprintf('Reading file: %s\n', [ dirName fileName ])
 dataArray = textscan(fileID, formatSpec, 'Delimiter', delimiter, 'EmptyValue' ,NaN, 'ReturnOnError', false);
 fclose(fileID);
 
-dataXQ.time = datenum(dataArray{:, 5}) + ...
+% =====================================================================
+% Assign the parameters to the structured array
+% =====================================================================
+iMetXQ.obsTime = datenum(dataArray{:, 5}) + ...
     datenum(dataArray{:, 6}) - ...
     datenum(2015, 1, 1);
-dataXQ.press_hPa = dataArray{:, 2}/1e2;
-dataXQ.temp_C = dataArray{:, 3}/1e2;
-dataXQ.relHumid_perCent = dataArray{:, 4}/1e1;
-dataXQ.lat_deg = dataArray{:, 7}/1e7;
-dataXQ.lon_deg = dataArray{:, 8}/1e7;
-dataXQ.altAGL_m = dataArray{:, 9}/1e3;
-dataXQ.nSat = dataArray{:, 10};
+iMetXQ.pressure_hPa = dataArray{:, 2}/1e2;
+iMetXQ.temperature_C = dataArray{:, 3}/1e2;
+iMetXQ.humidity_perCent = dataArray{:, 4}/1e1;
+iMetXQ.latitude_deg = dataArray{:, 7}/1e7;
+iMetXQ.longitude_deg = dataArray{:, 8}/1e7;
+iMetXQ.altitude_m = dataArray{:, 9}/1e3;
+iMetXQ.nSatellites = dataArray{:, 10};
 status = 1;
