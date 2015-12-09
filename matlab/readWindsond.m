@@ -1,4 +1,5 @@
 function [windsond, status] = readWindsond(dirName, fileName)
+<<<<<<< HEAD
 % =====================================================================
 % readWindsond
 % [windsond, status] = readWindsond(dirName, fileName)
@@ -18,6 +19,12 @@ function [windsond, status] = readWindsond(dirName, fileName)
 % =====================================================================
 if ~exist([ dirName fileName ], 'file')
     fprintf('*** readWindsond: file does not exist ... exiting!\n')
+=======
+% Comments coming
+
+if ~exist([ dirName fileName ], 'file')
+    fprintf('*** File does not exist ... exiting!\n')
+>>>>>>> origin/master
     windsond = [];
     status = 0;
     return
@@ -26,8 +33,12 @@ end
 % =====================================================================
 % Open the file for reading
 % =====================================================================
+<<<<<<< HEAD
 fileID = fopen([ dirName fileName ], 'r');
 fprintf('Reading file: %s\n', [ dirName fileName ])
+=======
+fileID = fopen([dirName fileName], 'r');
+>>>>>>> origin/master
 
 % =====================================================================
 % Read the header data

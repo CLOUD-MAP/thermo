@@ -1,8 +1,15 @@
 function [mts, status] = readMTSData(fileName, dirName)
+<<<<<<< HEAD
 % =====================================================================
 % readMTSData
 % [mts, status] = readMTSData(fileName, dirName)
 % =====================================================================
+=======
+% readMTSData
+% Created by Phil Chilson
+% Function call
+% [mts, status] = readMTSData(file, directory)
+>>>>>>> origin/master
 % Function used to read in a mesonet MTS data file and create a structured
 % array called mst of the form given below.
 % Input parameters are
@@ -30,7 +37,11 @@ function [mts, status] = readMTSData(fileName, dirName)
 %                temp9m_C: [1x288 double]
 %         windSpeed2m_mps: [1x288 double]
 % where the dimenstion of the array is time.
+<<<<<<< HEAD
 % Created 2015-12-09 Phil Chilson
+=======
+% Created 2015 12 07 Phil Chilson
+>>>>>>> origin/master
 % Revision history
 
 % Quantities contained in the MTS file
@@ -61,9 +72,12 @@ function [mts, status] = readMTSData(fileName, dirName)
 % TR25  Soil moisture reference temperature at 25cm under sod [C]
 % TR60  Soil moisture reference temperature at 60cm under sod [C]
 
+<<<<<<< HEAD
 % =====================================================================
 % Check number of input arguments and take appropriate actions
 % =====================================================================
+=======
+>>>>>>> origin/master
 switch nargin
     case 1
         % outDir not specified, use pwd
@@ -71,11 +85,16 @@ switch nargin
     case 2
         % we're good here
     otherwise
+<<<<<<< HEAD
         fprintf('*** readMTSData: error calling function ... exiting!\n')
+=======
+        fprintf('*** error calling readMTSData ... exiting!\n')
+>>>>>>> origin/master
         status = 0;
         return
 end
 
+<<<<<<< HEAD
 % =====================================================================
 % Check if the file exists and if so open it
 % =====================================================================
@@ -84,23 +103,35 @@ if exist([ dirName fileName ], 'file')
   fprintf('Reading file: %s\n', [ dirName fileName ])
 else
   fprintf('*** readMTSData: file not found!\n')
+=======
+if exist([dirName fileName], 'file')
+  fp = fopen([dirName fileName], 'r');
+else
+  fprintf('*** File not found!\n')
+>>>>>>> origin/master
   mts = [];
   status = 0;
   return
 end
 
+<<<<<<< HEAD
 % =====================================================================
 % Read the header data
 % =====================================================================
+=======
+>>>>>>> origin/master
 str = fgetl(fp);
 str = fgetl(fp);
 [~, yr, mon, day, hr, mm, ss] = strread(str, '%d%d%d%d%d%d%d');
 timeBeg = datenum(yr, mon, day, hr, mm, ss);
 str = fgetl(fp);
+<<<<<<< HEAD
 
 % =====================================================================
 % Read the data and assign them to the structured array
 % =====================================================================
+=======
+>>>>>>> origin/master
 icnt = 1;
 while 1
   str = fgetl(fp);
@@ -109,6 +140,7 @@ while 1
    TR25, TR60] = ...
       strread(str, '%s%d%d%d%f%f%f%d%f%f%f%f%f%d%f%f%f%f%f%f%f%f%f%f');
   mts.stationNumber(icnt) = STNM;
+<<<<<<< HEAD
   mts.obsTime(icnt) = timeBeg + TIME/24/60;
   mts.humidity_perCent(icnt) = RELH;
   mts.temperature1p5m_C(icnt) = TAIR;
@@ -133,4 +165,25 @@ end
 % =====================================================================
 fclose(fp);
 
+=======
+  mts.timeUTC(icnt) = timeBeg + TIME/24/60;
+  mts.rain_mm(icnt) = RAIN;
+  mts.relHumid_perCent(icnt) = RELH;
+  mts.temp1p5m_C(icnt) = TAIR;
+  mts.windSpeed10m_mps(icnt) = WSPD;
+  mts.windSpeedVec10m_mps(icnt) = WVEC;
+  mts.windDir10m_deg(icnt) = WDIR;
+  mts.windDirSD10m_deg(icnt) = WDSD;
+  mts.windSpeedSD10m_mps(icnt) = WSSD;
+  mts.windSpeedMax10m_mps(icnt) = WMAX;
+  mts.rain_mm(icnt) = RAIN;
+  mts.pressure_hPa(icnt) = PRES;
+  mts.solRad_Wpm2(icnt) = SRAD;
+  mts.temp9m_C(icnt) = TA9M;
+  mts.windSpeed2m_mps(icnt) = WS2M;
+  if feof(fp), break, end
+  icnt = icnt + 1;
+end
+fclose(fp);
+>>>>>>> origin/master
 status = 1;
