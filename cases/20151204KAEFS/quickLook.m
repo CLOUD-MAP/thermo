@@ -1,4 +1,3 @@
-% test comment (remove !!)
 %% Initialization
 % Clear the screen for kicks
 clc
