@@ -1,5 +1,6 @@
 % QuickLook
-
+% used to visualize the data
+% new comment
 %% Initialization
 % Clear the screen for kicks
 clc
