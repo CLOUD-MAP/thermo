@@ -1,3 +1,4 @@
+% test comment (remove)
 %% Initialization
 % Clear the screen for kicks
 clc
@@ -16,7 +17,7 @@ procStation = 'wash';
 baseDir = '/users/chilson/Matlab/CLOUDMAP/';
 
 % Create the directory of the matlab library and add it to the path
-libDir = [ baseDir filesep 'thermo' filesep 'matlab' filesep ]; 
+libDir = [ baseDir filesep 'thermo' filesep 'matlab' filesep ];
 addpath(libDir)
 
 iMetFlag = true;
@@ -53,16 +54,16 @@ load([ dataDir fileName ])
 
 if iMetFlag
     sensorType = 'iMet';
-    
+
     dataDir = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
-    
+
     diMet = dir([ dataDir '*.mat' ]);
     nFilesiMet = length(diMet);
     for iFile = 1: nFilesiMet
         load([ dataDir diMet(iFile).name ])
         iMetXQArr(iFile) = iMetXQ;
     end
-    
+
     figure(1)
     clf
     % --------------
@@ -114,10 +115,10 @@ if iMetFlag
     datetick('x', 15, 'keeplimits')
     ylabel('Humidity (%)')
     xlabel('Time UTC)')
-    
+
     set(gcf,'PaperPositionMode','auto')
     print('iMetSensors.png', '-dpng')
-    
+
 end
 
 %% Windsond data
@@ -126,9 +127,9 @@ timeOffset = 6;
 
 if windsondFlag
     sensorType = 'Windsond';
-    
+
     dataDir = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
-    
+
     dWindsond = dir([ dataDir '*.mat' ]);
     nFilesWindsond = length(dWindsond);
     for iFile = 1: nFilesWindsond
@@ -136,7 +137,7 @@ if windsondFlag
         windsond.obsTime = windsond.obsTime + timeOffset/24;
         windsondArr(iFile) = windsond;
     end
-    
+
     figure(2)
     clf
     % --------------
@@ -188,10 +189,10 @@ if windsondFlag
     datetick('x', 15, 'keeplimits')
     ylabel('Humidity (%)')
     xlabel('Time UTC)')
-    
+
     set(gcf,'PaperPositionMode','auto')
     print('windsondSensors.png', '-dpng')
-    
+
 end
 
 %% Clean up
