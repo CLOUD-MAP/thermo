@@ -40,10 +40,11 @@ fclose(fileID);
 % =====================================================================
 % Assign the parameters to the structured array
 % =====================================================================
+% must be a more elegant way to get the time
+[procYear, ~, ~, ~, ~, ~] = datevec(dataArray{:, 5});
 iMetXQ.obsTime = datenum(dataArray{:, 5}) + ...
-    datenum(dataArray{:, 6}) - ...
-    datenum(2015, 1, 1);
-iMetXQ.pressure_Pa = 100*dataArray{:, 2}/1e2;
+    datenum(dataArray{:, 6}) - datenum(procYear(1), 1, 1);
+iMetXQ.pressure_Pa = dataArray{:, 2};
 iMetXQ.temperature_C = dataArray{:, 3}/1e2;
 iMetXQ.humidity_perCent = dataArray{:, 4}/1e1;
 iMetXQ.latitude_deg = dataArray{:, 7}/1e7;

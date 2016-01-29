@@ -48,9 +48,19 @@ while ~feof(fileID)
     if ~isempty(ind)
         str = strrep(str, ']', ','); % needed to help extract data
         % Time
-        obsMinute = str2double(str(1:2));
-        obsSecond = str2double(str(4:5)) + str2double(str(7:8))/1000;
-        obsTime(iCount) = begTime + (obsMinute + obsSecond/60)/60/24;
+        ind = strfind(str, ': ');
+        timeStr = str(1: ind - 1);
+        ind = strfind(timeStr, 'h');
+        if isempty(ind)
+            obsHour = 0;
+        else
+            obsHour = str2double(timeStr(1: ind - 1));
+        end
+        obsMinute = str2double(timeStr(end - 8: end - 7));
+        obsSecond = str2double(timeStr(end - 5: end - 4)) + ...
+            str2double(timeStr(end - 2: end))/1000;
+        obsTime(iCount) = begTime + ...
+            (60*obsHour + obsMinute + obsSecond/60)/60/24;
         % Battery charge
         valID = 'su';
         nChars = length(valID) + 1;

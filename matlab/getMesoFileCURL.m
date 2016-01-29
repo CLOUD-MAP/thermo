@@ -35,14 +35,9 @@ switch nargin
 end
 
 % =====================================================================
-% Use cURL to fetch the data.  This command can be run from the system
-% level, so first a command string has to be built which contains the
-% command and the exact file which is to be retrieved.
+% Construct the file name
 % =====================================================================
-baseURL = 'https://www.mesonet.org/index.php/dataMdfMts/dataController/getFile/';
-dateLocationString = sprintf('%4.4d%2.2d%2.2d%s/mts/DOWNLOAD/', ...
-    procYear, procMonth, procDay, procStation);
-URL = ['"' baseURL dateLocationString '"'];
+fileName = sprintf('%4.4d%2.2d%2.2d%s.mts', procYear, procMonth, procDay, procStation);
 
 % =====================================================================
 % Check if outDir exists, if not then create it.
@@ -52,19 +47,35 @@ if ~exist(outDir, 'dir')
 end
 
 % =====================================================================
-% Construct the file name
+% Two different approaches depending on whether file is from the NWC or one
+% of the standard stations
 % =====================================================================
-fileName = sprintf('%4.4d%2.2d%2.2d%s.mts', procYear, procMonth, procDay, procStation);
-
-% =====================================================================
-% Create the command string to pass to CURL
-% =====================================================================
-cmdstr = ['curl -o ' outDir fileName ' ' URL];
-
-% =====================================================================
-% Actually call CURL
-% =====================================================================
-system(['DYLD_LIBRARY_PATH="";' cmdstr]);
+if strcmp(procStation, 'nwcm')
+    baseURL = 'http://www.mesonet.org/data/public/nwc/mts-1m/';
+    URL = sprintf('%s%4.4d/%2.2d/%2.2d/%s', ...
+        baseURL, procYear, procMonth, procDay, fileName);
+    urlwrite(URL, [outDir fileName]);
+else
+    % =====================================================================
+    % Use cURL to fetch the data.  This command can be run from the system
+    % level, so first a command string has to be built which contains the
+    % command and the exact file which is to be retrieved.
+    % =====================================================================
+    baseURL = 'https://www.mesonet.org/index.php/dataMdfMts/dataController/getFile/';
+    dateLocationString = sprintf('%4.4d%2.2d%2.2d%s/mts/DOWNLOAD/', ...
+        procYear, procMonth, procDay, procStation);
+    URL = ['"' baseURL dateLocationString '"'];
+    
+    % =====================================================================
+    % Create the command string to pass to CURL
+    % =====================================================================
+    cmdstr = ['curl -o ' outDir fileName ' ' URL];
+    
+    % =====================================================================
+    % Actually call CURL
+    % =====================================================================
+    system(['DYLD_LIBRARY_PATH="";' cmdstr]);
+end
 
 fprintf('Created %s in %s\n', fileName, outDir)
 status = 1;

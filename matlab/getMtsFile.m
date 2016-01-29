@@ -1,35 +1,28 @@
-function [matFileName, dataDir, status] = mts2mat(procYear, ...
-    procMonth, procDay, procStation, fetchFlag, baseDir)
+function [fileName, status] = getMtsFile(procYear, procMonth, procDay, ...
+    procStation, fetchFlag, baseDir)
 % =====================================================================
-% mts2mat
-% [matFileName, dataDir, status] = mts2mat(procYear, ...
-%    procMonth, procDay, procStation, fetchFlag, baseDir)
+% getMtsFile
+% [status] = getMtsFile(procYear, procMonth, procDay, ...
+%    procStation, fetchFlag, baseDir)
 % =====================================================================
-% Create mat files from mesonet mts files
+% If not present, get mts file
 % Inputs:
 % procYear    = year to process
 % procMonth   = month to process
-% procDat     = day to process
+% procDate    = day to process
 % procStation = mesonet station to process, e.g., 'nrmn', 'wash'
 % fetchflag   = flag indicating whether to retrieve data file automatically
 %               from the mesonet site (Mac only)
 % baseDir     = local directory where your 'thermo' folder lives
 % Outputs
-% matFileName = name of the mat file generated
-% dataDir     = directory used to read and write data
 % status      = flag indiating status of read
-% Created 2015-12-09 Phil Chilson
+% Created 2016-1-28 Phil Chilson
 % Revision history
 
 % =====================================================================
 % Set up the inputs
 % =====================================================================
 sensorType = 'Mesonet';
-if strcmp(procStation, 'nwcm');
-    NWCFlag = true;
-else
-    NWCFlag = false;
-end
 
 % =====================================================================
 % Create the directory using the file separators appropriate for your OS
@@ -39,8 +32,8 @@ dataDir = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
 % =====================================================================
 % Check if the mts file exists
 % =====================================================================
-mesoFileName = sprintf('%4.4d%2.2d%2.2d%s.mts', procYear, procMonth, procDay, procStation);
-if ~exist([ dataDir mesoFileName ], 'file')
+fileName = sprintf('%4.4d%2.2d%2.2d%s.mts', procYear, procMonth, procDay, procStation);
+if ~exist([ dataDir fileName ], 'file')
     % Try to retrieve the data if possible, if not then exit
     % =====================================================================
     % This allows you to grab the data automatically from the mesonet site, but
@@ -53,31 +46,16 @@ if ~exist([ dataDir mesoFileName ], 'file')
         getStatus = getMesoFileCURL(procYear, procMonth, ...
             procDay, procStation, dataDir);
         if getStatus ~= 1
-            fprintf('*** mst2mat: problem getting mesonet data ... exiting!\n')
+            fprintf('*** Problem getting mesonet data ... exiting!\n')
             status = 0;
             return
         end
     else
-        fprintf('mts2mat: searching for %s\n', [ dataDir fileName ])
+        fprintf('Searching for %s\n', [ dataDir fileName ])
         fprintf('*** Data file not found ... exiting!\n')
         status = 0;
         return
     end
 end
-
-% =====================================================================
-% Read in the data file and create a matlab structured array
-% =====================================================================
-[mts, readStatus] = readMTSData(mesoFileName, dataDir, NWCFlag);
-if ~readStatus
-    status = 0;
-end
-
-% =====================================================================
-% Create the mat file name and save the structured array
-% =====================================================================
-matFileName = strrep(mesoFileName, '.mts', '.mat');
-fprintf('Creating file: %s\n', [ dataDir matFileName ])
-save([ dataDir matFileName ], 'mts')
 
 status = 1;

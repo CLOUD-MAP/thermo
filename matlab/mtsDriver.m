@@ -7,9 +7,9 @@ clc
 clear all
 
 % Set up the inputs
-procYear = 2015;
-procMonth = 12;
-procDay = 04;
+procYear = 2016;
+procMonth = 1;
+procDay = 25;
 procStation = 'wash';
 sensorType = 'Mesonet';
 % set batchFlag to 1 if mesonet data retrieved automatically (mac)
@@ -37,15 +37,15 @@ load([ matDataDir matFileName ])
 % ------------------------------------------------
 subplot(2, 1, 1)
 % ------------------------------------------------
-plot(mts.timeUTC, mts.solRad_Wpm2)
+plot(mts.obsTime, mts.solarRadiation_Wpm2)
 datetick('x', 15)
-title(datestr(mts.timeUTC(1), 29))
+title(datestr(mts.obsTime(1), 29))
 ylabel('Solar Radiation (W m^{-2})')
 
 % ------------------------------------------------
 subplot(2,1,2)
 % ------------------------------------------------
-plot(mts.timeUTC, mts.temp1p5m_C)
+plot(mts.obsTime, mts.temperature1p5m_C)
 datetick('x', 15)
 xlabel('Time (UTC)')
 ylabel('Temperature at 1.5 m (C)')
