@@ -35,7 +35,7 @@ switch nargin
         else
             offsetFlag = reply{6};
         end
-    case 1 | 2 | 3
+    case {1, 2, 3}
         fprintf('*** Insufficient inputs ... exiting!\n')
         return
     case 4
