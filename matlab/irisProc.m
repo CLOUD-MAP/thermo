@@ -1,5 +1,27 @@
-% Description of the code
+function irisProc(procYear, procMonth, procDay) 
+
+
 clc
+
+
+switch nargin
+    case 0
+        DialogTitle = ('Enter Date of Flight');
+        Prompt = {'Year:', ...
+            'Month:', ...
+            'Day:'}
+        LineNo = 1;
+        
+        reply = inputdlg(Prompt, DialogTitle, LineNo);
+        
+        procYear = str2double(reply{1});
+        procMonth = str2double(reply{2});
+        procDay = str2double(reply{3});
+        
+
+
+
+end
 
 %% User inputs
 
@@ -7,13 +29,10 @@ clc
 % This is where your 'thermo' folder lives
 baseDir = '/users/austindixon/Documents/CLOUDMAP/';
 
-procYear = 2016;
-procMonth = 2;
-procDay = 12;
-sensorType = 'iris+';
-dataRead = true;
 
 %% Read in the data
+dataRead = true;
+sensorType = 'iris+';
 if dataRead
     % Create the directory of the matlab library and add it to the path
     libDir = [ baseDir 'thermo' filesep 'matlab' filesep ];
@@ -86,3 +105,8 @@ figure(4)
 plot(plotTimeATT, plotPitch)
 xlabel('TimeUS')
 ylabel('Pitch (Deg)')
+
+figure(5)
+plot(plotTimeATT, plotYaw)
+xlabel('TimeUS')
+ylabel('Yaw (Deg) (North=0)')
