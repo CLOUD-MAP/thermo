@@ -1,4 +1,4 @@
-function calibScript(procYear, procMonth, procDay, sensorType, offsetFlag, quickLookFlag)
+function validScript(procYear, procMonth, procDay, sensorType, offsetFlag, quickLookFlag)
 % validScript: Used to validate sensors
 % Function call:
 % validScript(procYear, procMonth, procDay, sensorType, offsetFlag, quickLookFlag)
@@ -120,20 +120,25 @@ switch sensorType
 end
 
 % Check if the mts file available, if not, try to retrieve it
-[mesoFileName, status] = getMtsFile(procYear, procMonth, procDay, ...
-    procStation, fetchFlag, baseDir);
+%[mesoFileName, status] = getMtsFile(procYear, procMonth, procDay, ...
+%    procStation, fetchFlag, baseDir);
 
-if status
-    sensorType = 'Mesonet';
-    if strcmp(procStation, 'nwcm');
-        NWCFlag = true;
-    else
-        NWCFlag = false;
-    end
-    % Find the appropriate directory based on instrument type
-    mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
-    [mts, status] = readMTSData(mesoFileName, mesoDirName, NWCFlag);
-end
+% if status
+%     sensorType = 'Mesonet';
+%     if strcmp(procStation, 'nwcm');
+%         NWCFlag = true;
+%     else
+%         NWCFlag = false;
+%     end
+%     % Find the appropriate directory based on instrument type
+%     mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+%     [mts, status] = readMTSData(mesoFileName, mesoDirName, NWCFlag);
+% end
+% Following code only works if 1min data avaialble and no error trapping
+sensorType = 'Mesonet';
+mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+mesoFileName = sprintf('%4.4d%2.2d%2.2d.WASH.1min.csv', procYear, procMonth, procDay);
+[mts, ~] = readCSVMesonetData(procYear, procMonth, procDay, mesoFileName, mesoDirName);
 
 % Remove the matlab library
 rmpath(libDir)
@@ -146,6 +151,12 @@ timeEnd = sensor.obsTime(end);
 % Find the indices corresponding to the chosen ranges of time
 indSensor = find(timeBeg <= sensor.obsTime & sensor.obsTime <= timeEnd);
 indMeso = find(timeBeg <= mts.obsTime & mts.obsTime <= timeEnd);
+
+% Revise indMeso and start & end times for the sake of plotting and
+% visualizing
+indMeso = max(1, indMeso(1) - 1): min(length(mts.obsTime), indMeso(end) + 1);
+timeBeg = mts.obsTime(indMeso(1));
+timeEnd = mts.obsTime(indMeso(end));
 
 % Check for missing data in mesonet files
 mts.pressure_Pa(mts.pressure_Pa < -99) = NaN;
@@ -226,6 +237,8 @@ plot(sensor.obsTime(indSensor), sensor.temperature_C(indSensor) + offsetTemperat
     'linewidth', lineWidth)
 hold on
 plot(sensorObsTimeAvg, sensorTemperatureAvg_C + offsetTemperature_C, '*-b', 'linewidth', 2, ...
+    'linewidth', lineWidth)
+plot(mts.obsTime(indMeso), mts.temperature1p5m_C(indMeso), '*-g', 'linewidth', 2, ...
     'linewidth', lineWidth)
 plot(mts.obsTime(indMeso), mts.temperature9m_C(indMeso), '*-k', 'linewidth', 2, ...
     'linewidth', lineWidth)
