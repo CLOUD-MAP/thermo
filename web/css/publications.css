@@ -1,0 +1,40 @@
+div.paperYear {
+    display: block;
+    background-color: #777;
+    position: relative;
+    color: white;
+    border-radius: 3px;
+    padding: 0.5em 1em 0.45em 1em;
+    margin-top: 2.0em;
+    font-size: 120%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+span.showhide {
+    float: right;
+    font-weight: normal;
+    font-size: 70%;
+    color: #bbb;
+}
+span.showhide:after {
+    content: "(Click to show/hide)";
+}
+div#auto_populate {
+    display: block;
+    text-align: justify;
+}
+div.paperList ol {
+	margin: 0;
+}
+div.paperList ol:before {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 10px;
+}
+/* 
+div.paperList li {
+	margin-top: 0.5em;
+}
+ */

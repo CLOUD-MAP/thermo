@@ -1,0 +1,148 @@
+span.form_title {
+	font-size:16pt;
+	font-weight:bold;
+	display:block;
+	margin:20px auto 30px auto;
+	line-height:1.3em;
+}
+table {
+	font-size:12px;
+	text-align:left;
+}
+tr.std {
+	height:25px;
+}
+td {
+	vertical-align:top;
+	padding-bottom:5px;
+}
+td.input_name {
+	width:200px;
+	padding:0 10px;
+}
+td.input_field {
+	margin-left:20px
+}
+input[type=text], textarea {
+	width:320px;
+	max-width:400px;
+}
+textarea {
+	min-height:100px;
+	height:200px;
+	max-height:500px;
+}
+input[type=checkbox] {
+	margin-right:20px;
+}
+input.radio {
+	width:auto;
+	margin:3px 10px 3px 1px;
+}
+span.subtle {
+	display:inline-block;
+	color:#575;
+	font-size:9pt;
+	margin-bottom:10px;
+}
+span.tiny {
+	color:#866;
+	font-size:8pt;
+}
+span.star {
+	font-weight:bold;
+	color:#f00;
+}
+h4 {
+	color:#000;
+	font-size:16px;
+	line-height:24px;
+	margin:0 0 10px 0;
+}
+div.note {
+	color: #777;
+	display:block;
+	position:relative;
+	margin:50px 0 50px 20%;
+	width:60%;
+	padding:30px;
+	background-color:#fff;
+	border:solid 1px #baa;
+	text-align:center;
+	overflow:auto;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-transition:all 0.15s linear;
+}
+iframe.upload_menu, iframe.upload_target {
+	display:block;
+	width:100%;
+	border:none;
+	overflow:hidden;
+}
+iframe.upload_target {
+	display:none;
+	height:40px;
+	background-color:#ff4;
+}
+input.upload_button {
+	display:none;
+}
+input[type=range] {
+	min-width:200px;
+	margin-right:10px;
+}
+span.slider_label {
+	position:absolute;
+	color:#575;
+	display:inline-block;
+}
+
+/* Navigator */
+ul.nav {
+	display:inline-block;
+	padding:0;
+	margin:30px auto 0 auto;
+}
+ul.nav li {
+	display:inline-block;
+	width:32px;
+	height:26px;
+	line-height:26px;
+	float:left;
+	vertical-align:50%;
+	background-color:rgba(10, 0, 0, 0.05);
+	margin:0 2px;
+	text-align:center;
+}
+ul.nav li.bf {
+	width:60px;
+}
+ul.nav li.blank {
+	background:none;
+	border:1px solid transparent;
+}
+ul.nav a {
+	display:block;
+	width:100%;
+	height:100%;
+}
+ul.nav a:hover {
+	background-color:rgba(32, 16, 12, 0.1);
+	-webkit-transition:background-color 0.15s linear;
+}
+ul.nav li.selected {
+	background-color:rgba(0, 0, 0, 0.1);
+}
+ul.nav a {
+	text-decoration:none;
+}
+span.news_title {
+    display:block;
+    width:100%;
+    left:0;
+    color:#333;
+    font-weight:bold;
+    font-size:1.2em;
+    margin:1.0em 0 0.5em 0;
+}

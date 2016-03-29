@@ -1,0 +1,113 @@
+/* CSS Document */
+#topbar, #topbar_overlay {
+	display:block;
+	width:100%;
+	height:5px;
+	overflow-y:hidden;
+	border:none;
+	text-shadow:0px 1px 2px #444;
+}
+#topbar { position:relative; z-index:3; }
+#topbar_overlay { position:absolute; left:0; top:0; z-index:5; }
+#title {
+	position:absolute;
+	top:6px;
+	width:100%;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	letter-spacing:1px;
+	line-height:20px;
+	color:#fff;
+	text-shadow:0px 1px 2px #444;
+	z-index:6;
+}
+.parlabel {
+	color:green;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+span.annot {
+	text-decoration:none;
+	text-shadow:0 0 4px black, 0 0 4px black, 0 0 6px black, 0 0 6px black;
+	margin:0;
+	bottom:0;
+	font-size:10pt;
+	color:lime;
+}
+#ppi_moment {
+	margin:0;
+}
+
+#navbuttons {
+	position:absolute;
+	border:solid 2px #999;
+	background:url(../images/navback.png);
+	opacity:0.2;
+	display:block;
+	width:206px;
+	height:55px;
+	bottom:60px;
+	right:138px;
+	border-radius:3px;
+	-webkit-transition:opacity 0.2s linear;
+}
+#navbuttons:hover {
+	opacity:1;
+}
+#first, #prev, #play, #next, #last {
+	position:absolute;
+	top:20px;
+	width:16px;
+	height:16px;
+}
+#tprev, #tplay, #tnext {
+	position:absolute;
+	width:150px;
+	height:340px;
+	top:70px;
+	opacity:0;
+	filter:alpha(opacity=0);
+	background-color:white;
+}
+#moment_container {
+	display:block;
+	position:relative;
+	padding-bottom:15px;
+	overflow-y:auto;
+}
+#ppi {
+    background-color:#eee;
+}
+.boxcontent, #message, #volumes {
+	position:relative;
+	background-color:#fff;
+	display:block;
+	overflow-y:hidden;
+	border:solid 1px #ccc;
+	border-top:none;
+	margin-bottom:25px;
+	-webkit-transition:height 0.2s ease-out;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	-moz-border-radius-bottomright:5px;
+}
+#message ul, #volumes ul {
+	color:#000;
+	list-style-type:circle;
+	padding:10px 0 10px 30px;
+	margin:0;
+}
+#message ul li { line-height:23px; }
+#volumes ul { font-size:10pt; }
+#volumes ul li { line-height:21px; }
+#volumes ul li span.vcp {
+	display:inline-block;
+	color:#080;
+	max-width:110px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	vertical-align:top;
+}

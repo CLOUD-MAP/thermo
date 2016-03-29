@@ -1,0 +1,270 @@
+﻿/* Inspired by iWebkit, reference to http://iwebkit.net/
+   Some styles are directly extracted from the iWebkit API */
+html, body {
+	min-width:320px;
+	overflow-y:hidden;
+	-webkit-text-size-adjust:none;
+}
+body {
+	position:relative;
+	margin:0;
+	font-family:Arial,helvetica,sans-serif;
+	background-color:#333;
+	background:-webkit-gradient(linear, left top, left bottom, from(#151515), to(#444), color-stop(0.9,#333));
+	-webkit-text-size-adjust:none;
+	-webkit-touch-callout:none;
+}
+.center {
+	margin:auto;
+	display:block;
+}
+img {
+	border:0;
+	padding:0;
+	margin:0;
+}
+span.annot {
+	text-decoration:none;
+	text-shadow:0 0 1vw rgba(0,0,0,1.0), 0 0 2vw rgba(0,0,0,1.0);
+	margin:0;
+	padding:0;
+	bottom:0;
+	font-size:3.5vw;
+	color:lime;
+}
+#ppi_moment {
+	margin:10px 0 10px 0;
+	height:20px;
+}
+#tprev, #tplay, #tnext {
+	position:absolute;
+	display:block;
+	background-color:white;
+	opacity:0.0;
+	filter:alpha(opacity=99);
+	z-idnex:9999;
+}
+.parlabel {
+	color:green;
+}
+.led {
+	display:block;
+	float:left;
+	background:silver;
+	border:solid gray 1px;
+	height:9px;
+	width:9px;
+	padding:0;
+	margin:4px 6px 0 0;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
+.ledlabel {
+	float:left;
+}
+#mz, #mv, #mw, #md, #mp, #mo {
+	margin-top:6px;
+	height:32px;
+	width:31px;
+	background-size:32px 31px;
+}
+/*
+#mz { background-image:url(/local_icons/z.png); margin-left:5px; }
+#mv { background-image:url(/local_icons/v.png); }
+#mw { background-image:url(/local_icons/w.png); }
+#md { background-image:url(/local_icons/d.png); }
+#mp { background-image:url(/local_icons/p.png); }
+#mo { background-image:url(/local_icons/o.png); }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+*/
+/* CSS for iPhone 4 */
+/*
+	#mz { background-image:url(/local_icons/z@2x.png); }
+	#mv { background-image:url(/local_icons/v@2x.png); }
+	#mw { background-image:url(/local_icons/w@2x.png); }
+	#md { background-image:url(/local_icons/d@2x.png); }
+	#mp { background-image:url(/local_icons/p@2x.png); }
+	#mo { background-image:url(/local_icons/o@2x.png); }
+}
+*/
+div#moment_topbar {
+	display:block;
+	position:absolute;
+	width:100%;
+	height:14%;
+ 	z-index:9998;
+}
+div#footer {
+    display:block;
+    position:relative;
+    bottom:0px;
+    color:#f00;
+    width:100%;
+    height:48px;
+    padding-top:1px;
+    background:-webkit-gradient(linear, left top, left bottom, from(#35545B), to(#00222E), color-stop(0.5,#0E323D), color-stop(0.5,#00222E));
+    border-top:solid 1px #000;
+    z-index:9999;
+    -webkit-transform-style:preserve-3d;
+}
+div#tabmenu {
+    display:block;
+    height:auto;
+    overflow-y:auto;
+    width:100%;
+    border-top:solid 1px #82979D;
+}
+ul#tabs {
+    display:block;
+    height:auto;
+    overflow-y:auto;
+    margin:0 auto;
+    padding:3px 0 2px 4%;
+    color:inherit;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    list-style-type:none;
+    text-decoration:none;
+}
+ul#tabs li {
+    display:inline-block;
+    position:relative;
+    color:#FFF;
+    float:left;
+    width:14%;
+    height:auto;
+	min-height:30px;
+    overflow-y:auto;
+    padding:8px 0 2px 0;
+    margin:0 1% 0 1%;
+	text-shadow:#000 0 -1px 0;
+	cursor:pointer;
+}
+#tprev, #tplay, #tnext {
+	top:20%;
+	width:30%;
+	height:70%;
+}
+#tprev { left:5%; }
+#tplay { left:50%; margin-left:-15%; }
+#tnext { right:5%; }
+span.wxiconbox {
+	display:inline-block;
+	position:relative;
+	width:44px;
+	height:6px;
+	overflow:visible;
+}
+img.wxicon {
+	position:absolute;
+	transform:scale(0.25,0.25);
+	-webkit-transform:scale(0.25,0.25);
+	-moz-transform:scale(0.25,0.25);
+}
+div#top {
+	display:block;
+	position:relative;
+/*	background:-webkit-gradient(linear, left top, left bottom, from(#405070), to(#152545), color-stop(0.2,#235), color-stop(0.5,#283C64), color-stop(0.5,#182848)); */
+	background:-webkit-gradient(linear, left top, left bottom, from(#405070), to(#152545), color-stop(0.4,#235));
+	border-bottom:solid 1px rgba(255,255,255,0.3);
+}
+div#weather {
+	padding:8px 0;
+	width:100%;
+	color:#fff;
+	font-size:13px;
+	line-height:19px;
+	text-align:center;
+	-webkit-transition:height 0.5s ease-in;
+}
+div#frame {
+	display:block;
+	position:relative;
+	color:black;
+	padding:0;
+	margin:0;
+	min-height:364px;
+}
+img#ppi {
+	width:100%;
+	min-height:364px;
+	background-color:#222;
+	overflow:auto;
+	border:none;
+	margin:0;
+	padding:0;
+}
+div#aux {
+	display:block;
+	background:-webkit-gradient(linear, left top, left bottom, from(#444), to(#151515), color-stop(0.4,#333));
+	height:0;
+	text-align:center;
+}
+span.auxtext {
+	position:absolute;
+	top:7px;
+	color:#eff;
+	font-size:18pt;
+	font-weight:bold;
+	text-shadow:0px 0px 10px #00ffff;
+	width:240px;
+	margin-left:-120px;
+	margin-bottom:-10px;
+}
+/* iPhone 5 & 5S */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+	div#aux {
+		height:36px;
+	}
+	span.auxtext {
+		top:7px;
+		font-size:16pt;
+	}
+	ul#tabs li {
+	    padding:9px 0 2px 0;
+	}
+}
+/* iPhone 6 */
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+	div#aux {
+		height:44px;
+		padding-top:28px;
+	}
+	span.auxtext {
+		top:24px;
+		font-size:18pt;
+	}
+	ul#tabs {
+	    font-size:20px;
+	}
+	ul#tabs li {
+	    padding:8px 0 2px 0;
+	}
+}
+/* iPhone 6 Plus */
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+	div#aux {
+		height:60px;
+	}
+	span.auxtext {
+		top:28px;
+		font-size:20pt;
+	}
+	div#footer {
+	    height:56px;
+	}
+	ul#tabs {
+	    font-size:22px;
+	}
+	ul#tabs li {
+	    padding:12px 0 2px 0;
+	}
+}
+div#topbar_overlay {
+	display:block;
+	position:relative;
+	height:5px;
+	width:100%;
+	background-color:gray;
+}

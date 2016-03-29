@@ -1,0 +1,18 @@
+img.header_logo {
+    position: absolute;
+    height: 70px;
+}
+
+iframe#twitter-widget-0, div.fb-like-box {
+    width: 350px !important;
+    float: left;
+}
+
+div.fb-like-box {
+    margin-left: 10px;
+}
+
+div#template_header {
+	height: 161px;
+	background: linear-gradient(#2a2a2a, #2a2a2a 32px, #590d0f 33px, #590d0f 152px, #430102 153px);
+}

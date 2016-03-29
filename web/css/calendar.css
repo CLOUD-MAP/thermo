@@ -1,0 +1,146 @@
+html {
+	font-family: "Avenir", helvetica, arial;
+}
+body {
+	margin: 0;
+	-webkit-text-size-adjust: none;
+    background: -webkit-linear-gradient(#111 50%,
+                                        #333 100%);
+	background-attachment: fixed;
+}
+@-webkit-keyframes animatedLogo {
+	0%   { background-position: 15vw  -5vw; }
+	50%  { background-position: 15vw -40vw; }
+	100% { background-position: 15vw  -5vw; }
+}
+div.backdrop {
+	display: block;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: url(../images/ARRC.svg) no-repeat;
+	background-size: 100vw 100vw;
+	background-position: 15vw -5vw;
+/* 	-webkit-animation: animatedLogo 90s linear infinite; */
+}
+div.header {
+	display: block;
+	position: fixed;
+	width: 100vw;
+	height: 5vw;
+	top: 0;
+	color: white;
+	font-size: 2.5vw;
+	line-height: 5vw;
+	text-align: center;
+	letter-spacing: 0.05em;
+	background: rgba(160, 0, 0, 1.0);
+	z-index: 999;
+}
+div#fullScreenButton {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    cursor: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+/* ----------------------------------- Calendar ----------------------------------- */
+div.calendar {
+	display: block;
+	position: absolute;
+	top: 5vw;
+	width: 100%;
+	color: white;
+	font-size: 1.5vw;
+	overflow-y: hidden;
+	border-top: 1px solid gray;
+}
+div.calendar div.day,
+div.calendar div.slot {
+	position: relative;
+	border-bottom: 1px solid gray;
+}
+div.calendar div.day {
+	display: block;
+	padding: 0.5vw 0 0.5vw 3vw;
+	overflow: auto;
+	background-color: rgba(80, 80, 80, 0.8);
+/* 
+	background: -webkit-linear-gradient(left, rgba(240, 180, 140, 0.2) 30%,
+	                                    rgba(255, 255, 255, 0.05));
+ */
+}
+div.calendar div.day div.date {
+	font-size: 110%;
+/* 	font-weight: bold; */
+	letter-spacing: 0.05em;
+}
+div.calendar div.day div.timeLeft {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	padding-right: 3vw;
+	text-align: right;
+	-webkit-transform: translateY(-50%);
+}
+div.calendar div.day div.future {
+	color: lime;
+}
+div.calendar div.day div.today {
+    font-weight: bold;
+	color: gold;
+}
+div.calendar div.day div.past {
+	color: lightblue;
+}
+div.calendar div.slot div.startTime,
+div.calendar div.slot div.endTime {
+	display: block;
+	width: 8vw;
+	text-align: right;
+ 	padding-left: 3vw;
+}
+div.calendar div.slot div.startTime {
+	padding-top: 1vw;
+}
+div.calendar div.slot div.startTime,
+div.calendar div.slot div.endTime,
+div.calendar div.slot div.location {
+ 	padding-bottom: 1vw;
+}
+div.calendar div.slot div.endTime,
+div.calendar div.slot div.location {
+	opacity: 0.4;
+}
+@-webkit-keyframes pulsingBackground {
+    /* Same as the refresh cycle so that table rendering is invisible */
+	0%   { background-color: rgba(0, 0, 0, 0); }
+	20%  { background-color: rgba(255, 210, 80, 0.3); }
+	90%  { background-color: rgba(0, 0, 0, 0); }
+}
+div.calendar div.now {
+    -webkit-animation: pulsingBackground 5s linear infinite;
+}
+div.calendar div.slot div.subject,
+div.calendar div.slot div.location {
+	position: absolute;
+	left: 15%;
+}
+div.calendar div.slot div.subject {
+	top: -0.4vw;
+	width: 83%;
+	padding: 0.8vw 0 0 0;
+	font-size: 150%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+div.calendar div.slot div.location {
+	bottom: 0;
+}

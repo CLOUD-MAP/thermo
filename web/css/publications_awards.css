@@ -1,0 +1,20 @@
+img#student_paper_award_trophy {
+	position: absolute;
+	width: 512px;
+	top: 130px;
+	margin-left: 50%;
+	z-index:2;
+	transform: translate(20px, 0);
+}
+div#student_paper_award_story {
+	position: absolute;
+	font-size: 1.3em;
+	line-height: 1.4em;
+	text-align: justify;
+	width: 480px;
+	margin:80px 0 0 50%;
+	transform: translateX(-480px);
+}
+div#student_paper_award_papers {
+	text-align: justify;
+}

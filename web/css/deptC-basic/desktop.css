@@ -1,0 +1,416 @@
+/* DEPT C DESKTOP.CSS */
+
+/* .container-fluid rules - same for all but feature which will be 100% width */
+.container-fluid {
+    width:940px;
+    padding:auto;
+    margin:0 auto;
+}
+
+.feature > .container-fluid { width:auto; }
+
+/* HEADER
+---------------------------------------- */
+
+.page_dept_home .header .headeripar .section > .image { padding: 3em 0; }
+.page_dept_content .header .headeripar .section > .image { padding: 3em 0 4em; }
+
+/* FEATURE 
+-------------------------------------- */
+
+.feature { padding-bottom: 5px; }
+
+
+/* FEATURE CAROUSEL
+-------------------------------------- */
+
+.feature .webcomm-carousel .carousel-inner {
+	position:relative;
+	overflow:hidden;	
+}
+
+/* this media query for screens wider than 2000px */ 
+@media all and (min-width: 2001px) {
+
+	.feature .webcomm-carousel .carousel-inner {
+		width:2000px; /* this must be the width of the viewport */ 
+		margin: 0 auto;
+	}
+	
+}
+
+.feature .webcomm-carousel .carousel-inner .carousel-image { height:425px; text-align:center; }
+.feature .webcomm-carousel .carousel-inner .carousel-image img {
+	position: relative;
+	top: 50%;
+
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	
+    -webkit-transition: background-color 250ms linear, color 250ms linear;
+    -moz-transition: background-color 250ms linear, color 250ms linear;
+    -o-transition: background-color 250ms linear, color 250ms linear;
+    -ms-transition: background-color 250ms linear, color 250ms linear;
+    transition: background-color 250ms linear, color 250ms linear;
+}
+
+@media all and (max-width: 2000px) {
+	
+	.feature .webcomm-carousel .carousel-inner { width:auto; }	
+	.feature .webcomm-carousel .carousel-inner .carousel-image { 
+		text-align: inherit;
+		width:auto;
+		overflow:hidden;		
+	}	
+	
+	/* for windows less than 2000px, translateX too */
+	.feature .webcomm-carousel .carousel-inner .carousel-image img {
+		left:50%;
+		max-width:none;
+	
+		-webkit-transform: translateY(-50%) translateX(-50%);
+		-moz-transform: translateY(-50%) translateX(-50%);
+		-ms-transform: translateY(-50%) translateX(-50%);
+		-o-transform: translateY(-50%) translateX(-50%);
+		transform: translateY(-50%) translateX(-50%);
+		
+	}
+
+	/* these rules for active item */
+	.feature .webcomm-carousel .active.left,
+	.feature .webcomm-carousel .active.right {    
+		width:auto;
+	}
+	
+}
+
+
+.feature .webcomm-carousel .carousel-inner .carousel-caption {
+    background-color:#000000;
+    border:1px solid #444444;
+    padding:1em;
+    width:40em;
+    margin: 3em 5em;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:auto;
+    left:auto;
+    color:#FFFFFF;
+}
+
+/* addition class of "caption-left" moves the caption to the left side instead of right */
+.feature .webcomm-carousel.caption-left .carousel-inner .carousel-caption {
+    right:auto;
+    left:0;	
+}
+
+
+/* FEATURE TABS
+-------------------------------------- */
+
+
+.feature .feature_tabs {
+    width:auto;
+    max-width:2000px;
+    margin:0 auto;
+    padding:0;  
+}
+
+.feature .feature_tabs ul.nav-tabs {
+    border-bottom:none;
+    width:940px;
+    margin:0 auto;  
+}
+
+
+.feature .feature_tabs ul.nav-tabs > li > a { border-top-width:2px; }
+.feature .feature_tabs ul.nav-tabs > li.active > a,
+.feature .feature_tabs ul.nav-tabs > li > a:active,
+.feature .feature_tabs ul.nav-tabs > li > a:hover {
+    border-top-color:#981a1e;   
+    border-right-color:#D4D4D4;
+    border-left-color:#D4D4D4;
+}
+.feature .feature_tabs ul.nav-tabs > li > a:hover { 
+    background-color:transparent; 
+    border-bottom-color:#FFFFFF;
+}
+
+
+.feature .feature_tabs .tab-content {
+    padding-top:5px;
+    padding-bottom:0;   
+}
+
+.feature .feature_tabs .tab-content > .tab-pane {
+    background-repeat:no-repeat;
+    background-position:center center;
+    min-height:425px;
+    margin:0;
+    position:relative;
+    
+    /*-moz-box-shadow: inset 300px 0 300px -300px #FFF;
+    -webkit-box-shadow: inset 300px 0 300px -300px #FFF;
+    box-shadow: inset inset 300px 0 300px -300px #FFF;*/
+}
+
+
+.feature .feature_tabs .tab-content > .tab-pane > .thistab {
+    background-color:#000000;
+    border:1px solid #444444;
+    padding:1em;
+    width:30em;
+    margin:2em;
+    position:absolute;
+    top:0;
+    right:0;
+    color:#FFFFFF;
+}
+
+
+
+/* FEATURE TEXT IMAGE
+----------------------------------------- */
+
+
+.feature .feature_txtimg {  
+    position:relative;
+    width:auto;
+    max-width:2000px;
+    overflow:hidden;
+    margin:0 auto;
+    padding:5px 0 0;
+    border-top:1px solid #d4d4d4;
+}
+.feature .feature_txtimg .image {
+    height:auto;
+}
+.feature .feature_txtimg .image img {
+	display:block;
+	margin-right:auto;
+	margin-left:auto;	
+}
+.feature .feature_txtimg .image br { display:none; }
+
+.feature .feature_txtimg .text {
+    background-color:#000000;
+    padding:1em;
+    width:30em;
+    margin:2em;
+    position:absolute;
+    top:0;
+    right:0;
+    color:#FFFFFF;
+}
+
+/* FEATURE IMAGE
+----------------------------------------- */
+
+.feature .feature_image {
+    max-width:2000px;
+    overflow:hidden;
+	margin:0 auto;
+	padding:5px 0 0;
+}
+.feature .feature_image .image {
+    height:auto;
+}
+.feature .feature_image .image img {
+	display:block;
+	margin-right:auto;
+	margin-left:auto;	
+}
+
+
+
+/* MAIN 
+-------------------------------------- */
+
+.main { 
+    -moz-box-shadow: 0 -5px 0 0 #FFFFFF;
+    -webkit-box-shadow: 0 -5px 0 0 #FFFFFF;
+    box-shadow: 0 -5px 0 0 #FFFFFF;
+    padding: 0 0 3em 0;
+}
+
+.main .container-fluid { 
+    background-color:#FFFFFF;
+    border:1px solid #d4d4d4;
+    top:-25px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    position:relative;
+}
+
+.main .container-fluid::before,
+.main .container-fluid::after {
+    content:"";
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color:#FFFFFF;
+    
+    -moz-transform:translateX(-50%) translateY(-50%);
+    -ms-transform:translateX(-50%) translateY(-50%);
+    -o-transform:translateX(-50%) translateY(-50%);
+    -webkit-transform:translateX(-50%) translateY(-50%);
+    transform:translateX(-50%) translateY(-50%);
+}
+
+/* empty container placed behind .container-fluid */
+.main .container-fluid::before {
+    border:1px solid #d4d4d4;
+    z-index:-1;
+}
+
+/* container for logo in the foreground */
+.main .container-fluid::after {
+    background-image:url(../../../content/dam/deptc/design2013/ou-logo.png);
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:40%;
+}
+
+/* HOME PAGE - TEXT IMAGE
+---------------------------------------------------- */
+
+.page_dept_home .main .relatedpar > .textimage .image {  
+    max-width:300px;
+    min-width:50px;
+}
+
+
+/* PROFILE
+-----------------------------------------  */
+
+.textimage .profile .image {
+	float:left!important;
+	margin:0 1em 1em 0;
+}
+
+
+
+
+/* COMMON BST - DESKTOP.CSS */
+
+
+/* GLOBAL HEADER
+---------------------------------------- */
+
+.globalheader ul { float:right; }
+
+a.tip { position:relative; }
+a.tip span { display: none; }
+
+/* the span will display just on :hover state */
+a.tip:hover span { 
+    position:absolute;
+    z-index:25;
+    top:135%; 
+    left:-3.75em;
+    width:8em;
+    
+    text-align: center;
+    color:#FFF;
+    font-size:90%;
+    white-space:nowrap;
+
+    display:block;
+    margin:0;
+    padding:0.25em 1em;
+
+    border:1px solid #444;
+    background-image:url(../../../content/dam/common/design2013/bg_black.gif);
+    background-repeat:repeat;
+
+}
+
+/* the arrow */
+a.tip:hover span::before {
+    content:"";
+    width:100%;
+    display:block;
+
+    background-image:url(../../../content/dam/common/design2013/ou-globalheader-tiparrow.png);
+    background-repeat:no-repeat;
+    background-position:top center;
+
+    bottom:100%;
+    left:0;
+    height:9px;
+    position:absolute;
+ 
+}
+
+/* FOOTER
+------------------------------------- */
+
+.footerlogo,
+.footeraddress,
+.footerColumn {
+    float:left;
+}
+.footer #footer_social_icons h1,
+.footer #footer_social_icons h2,
+.footer #footer_social_icons h3 {
+    float: right;
+    margin: 0 0 0.75em;
+}
+.footer #footer_social_icons .text { 
+	float: right;
+	clear:both;
+}
+.footer .footeraddress { margin-left: 10px; }
+
+/* make it sticky */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body { margin: 0 0 16em; }
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 16em;
+    width: 100%;
+    padding:0;
+}
+
+/* SOCIAL MEDIA TABLE STYLE
+------------------------------------ */
+
+table.socialmedia_directory > tbody > tr > td,
+table.socialmedia_directory > thead > tr > td  {
+	width:33%;	
+}
+
+table.socialmedia_ou td:first-child { width:66%; font-weight:bold; font-size: 110%; }
+table.socialmedia_ou td:last-child { width:33%; }
+
+
+/* TEXT IMAGE (This a workaround - should be deleted once inline css is removed from OU Text Image Component)
+------------------------------------ */
+
+
+.textimage .image-margin-left .image {
+    margin:5px 0 5px 15px!important;
+}
+.textimage .image-margin-right .image {
+    margin:5px 15px 5px 0!important;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+html {
+    font-family: "Avenir", helvetica, arial;
+    color: white;
+}
+body {
+    margin: 0;
+    -webkit-text-size-adjust: none;
+    background: -webkit-linear-gradient(#111 50%, #333 100%);
+    background-attachment: fixed;
+}
+div.backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/ARRC.svg) no-repeat;
+    background-size: 100vw 100vw;
+    background-position: 15vw -5vw;
+    /* 	-webkit-animation: animatedLogo 90s linear infinite; */
+}
+div.header {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 5vw;
+    top: 0;
+    font-size: 2.5vw;
+    line-height: 5vw;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: -webkit-linear-gradient(left, #3b0 0, #290 30%, #290 70%, #3b0 100%);
+    z-index: 10;
+}
+div#fullscreenButton {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    cursor: none;
+    z-index: 11;
+}
+div#refreshButton {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    cursor: none;
+    z-index: 11;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+/* ----------------------------------- container ----------------------------------- */
+div.container {
+    display: block;
+    position: absolute;
+    top: 5vw;
+    width: 49.75%;
+    font-size: 1vw;
+    line-height: 2.0em;
+    overflow-y: hidden;
+}
+div#container_left {
+    left: 0;
+    border-right: solid 1px rgba(255, 255, 255, 0.5);
+}
+div#container_right {
+    right: 0;
+    border-left: solid 1px rgba(255, 255, 255, 0.5);
+}
+ul.user_list {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+ul.user_list li {
+    display: block;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 1.5em;
+}
+ul.user_list li:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+span.username,
+span.period,
+span.bar {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+span.username {
+    width: 35%;
+    margin-left: 1%;
+}
+span.period {
+    width: 30%;
+    margin-left: 1%;
+}
+span.bar_wrapper {
+    display: inline-block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 15em;
+    height: 1em;
+    right: 1em;
+    top: 0.5em;
+    vertical-align: middle;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+span.thin {
+    height: 0.25em;
+    top: 1em;
+}
+span.bar {
+    background: linear-gradient(90deg, #0f0, #ff0, 5em, #f00 10em, #f0f 15em, black);
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+}
+span.bar_text {
+    position: absolute;
+    padding-left: 0.5vw;
+    font-size: 50%;
+    line-height: 205%;
+    font-weight: bold;
+    mix-blend-mode: difference;
+    z-index: 1;
+}
+div.software {
+    display: block;
+    position: relative;
+    background-color: rgba(0, 100, 220, 0.75);
+    font-weight: bold;
+    padding-left: 1.5vw;
+}
+div.software_down {
+    background-color: rgba(255, 0, 32, 0.75);
+}
+span.software_name {
+    display: inline-block;
+    vertical-align: middle;
+}
+div.software,
+ul.user_list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}

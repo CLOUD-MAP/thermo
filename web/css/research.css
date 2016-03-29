@@ -1,0 +1,49 @@
+.research_section {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    overflow-y: hidden;
+}
+/*.research_section::after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    background-color: #dddddd;*/
+/*    height: 1px;*/
+/*    width: 60%;*/
+/*    margin: 0 auto;*/
+/*}*/
+.research_section img {
+    position: absolute;
+}
+.research_section .notes {
+    position: absolute;
+    padding-left: 25px;
+}
+.research_section .quater {
+    width: 25%;
+    position: relative;
+    float: left;
+}
+.research_section .quater h3 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-transform: none;
+}
+.research_section .quater ul {
+    font-size: 90%;
+    padding-left: 25px;
+    list-style-type: square;
+}
+.research_section .quater div {
+    width: 100%;
+}
+.research_section .quater img {
+    width: 99%;
+    margin: 0 auto;
+}
+.show_border {
+     border-bottom:1px solid red;
+}
