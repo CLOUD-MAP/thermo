@@ -1,7 +1,7 @@
 %function calcIrisAtt(procYear, procMonth, procDay) 
 procYear = 2016;
-procMonth = 3;
-procDay = 31;
+procMonth = 2;
+procDay = 4;
 
 % clc
 % switch nargin
@@ -183,6 +183,8 @@ for iVal = 1: nVals
     end
 end
 
+windErr = abs(mts.windSpeed10m_mps(indMeso)-(13*sqrt(tand(psiAvg))));
+
 %% create the plots
 
 figure(1)
@@ -229,9 +231,14 @@ datetick('x', 13)
 shg
 
 figure(7)
-plot(plotTimeATTAvg, 15*sqrt(tand(psiAvg)))
+plot(plotTimeATT, 13*sqrt(tand(psi)))
 hold on
 plot(mts.obsTime(indMeso), mts.windSpeed10m_mps(indMeso))
 hold off
+datetick('x', 13)
+shg
+
+figure(8)
+plot(plotTimeATTAvg, windErr)
 datetick('x', 13)
 shg
