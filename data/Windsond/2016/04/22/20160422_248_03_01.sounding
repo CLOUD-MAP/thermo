@@ -1,0 +1,244 @@
+# Session start 2016-04-22 17:21:27
+# offset=1461345687.604
+# timezone=0
+# version=4
+# install=842E77C 30
+# software=A1.70
+# node_id=248
+00m00s000: [#FIND:q=B0]
+00m00s171: # ENQUEUE: gpsQuality
+00m00s171: # ENQUEUE: led
+00m00s171: # ENQUEUE: findme
+00m00s171: # ENQUEUE: ver
+00m00s171: # ENQUEUE: releaseAlt
+00m00s171: # ENQUEUE: gndAP
+00m00s202: # EXE_NOW: gpsQuality
+00m00s515: [#TXT:seq=1,q=AC:Boot]
+00m00s984: [#RES:q=AA:0]
+00m00s984: # REPLY to gpsQuality: 0
+00m01s187: # EXE_NOW: led
+00m01s250: [#DAT:q=A5,afc=-310,seq=2,su=4.21,te=26.28,md=0,pa=97952,tmp2=31.70,hu=35.43]
+00m01s328: # ENQUEUE: gs=1s0
+00m01s843: [#RES:q=A5:0]
+00m01s843: # REPLY to led: 0
+00m02s046: # EXE_NOW: findme
+00m02s062: [#DAT:q=A6,afc=-310,seq=3,su=4.21,te=26.32,md=0,pa=97952,tmp2=31.80,hu=34.96]
+00m02s593: [#RES:q=A3:0]
+00m02s593: # REPLY to findme: 0
+00m02s797: # EXE_NOW: ver
+00m03s109: [#DAT:q=A1,afc=-310,seq=4,su=4.21,te=26.40,md=0,pa=97946,tmp2=31.90,hu=34.51]
+00m03s578: [#RES:q=A1:1.74 TBSRiEO]
+00m03s578: # REPLY to ver: 1.74 TBSRiEO
+00m03s781: # EXE_NOW: releaseAlt
+00m04s094: [#DAT:q=9A,afc=-310,seq=5,su=4.20,te=26.46,md=0,pa=97950,tmp2=32.00,hu=34.15]
+00m04s563: [#RES:q=A0:30000]
+00m04s563: # REPLY to releaseAlt: 30000
+00m04s766: # EXE_NOW: gndAP
+00m05s031: [#DAT:q=9E,afc=-310,seq=6,su=4.20,te=26.56,md=0,pa=97950,tmp2=32.10,hu=33.90]
+00m05s500: [#RES:q=A6:65535:48976]
+00m05s500: # REPLY to gndAP: 65535:48976
+00m05s703: # EXE_NOW: gs=1s0
+00m06s344: [#TIM:]
+00m06s344: # TIMEOUT dongle: gs=1s0
+00m07s110: [#DAT:q=AC,afc=-310,seq=8,su=4.20,te=26.78,md=0,pa=97952,tmp2=32.20,hu=33.47]
+00m07s110: # ENQUEUE: gs=1s0
+00m07s110: # EXE_NOW: gs=1s0
+00m07s203: # BUSY
+00m07s203: # TIMEOUT dongle: gs=1s0
+00m08s017: [#DAT:q=AA,afc=-460,seq=9,su=4.21,te=26.92,md=0,pa=97956,tmp2=32.30,hu=33.09]
+00m10s064: [#DAT:q=99,afc=-310,seq=11,su=4.20,te=27.20,md=0,pa=97938,tmp2=32.50,hu=32.65]
+00m11s033: [#DAT:q=6D,afc=-310,seq=12,su=4.20,te=27.36,md=0,pa=97936,tmp2=32.60,hu=32.73]
+00m12s018: [#DAT:q=9B,afc=-310,seq=13,su=4.20,te=27.52,md=0,pa=97946,tmp2=32.70,hu=32.84]
+00m13s972: [#DAT:q=AD,afc=-310,seq=15,su=4.20,te=27.82,md=0,pa=97954,tmp2=33.00,hu=32.78]
+00m14s957: [#DAT:q=A9,afc=-460,seq=16,su=4.20,te=27.96,md=0,pa=97964,tmp2=33.10,hu=32.60]
+00m14s957: # ENQUEUE: gs=1s0
+00m14s957: # EXE_NOW: gs=1s0
+00m15s575: [#RES:q=AC:]
+00m15s575: # REPLY to gs=1s0: 
+00m17s107: [#DAT:q=9C,afc=-310,seq=18,su=4.20,te=28.20,md=0,pa=97952,tmp2=33.20,hu=32.50]
+00m18s998: [#DAT:q=7C,afc=-460,seq=20,su=4.20,te=28.40,md=0,pa=97942,tmp2=33.40,hu=32.06]
+00m20s123: [#DAT:q=97,afc=-460,seq=21,su=4.20,te=28.50,md=0,pa=97940,tmp2=33.50,hu=32.06]
+00m21s889: [#DAT:q=A3,afc=-460,seq=23,su=4.20,te=28.68,md=0,pa=97946,tmp2=33.70,hu=32.32]
+00m22s921: [#DAT:q=A4,afc=-460,seq=24,su=4.20,te=28.74,md=0,pa=97942,tmp2=33.70,hu=32.39]
+00m24s889: [#DAT:q=87,afc=-310,seq=26,su=4.20,te=28.80,md=0,pa=97942,tmp2=33.90,hu=32.57]
+00m25s905: [#DAT:q=8A,afc=-620,seq=27,su=4.20,te=28.80,md=0,pa=97940,tmp2=33.90,hu=32.53]
+00m26s843: [#DAT:q=A1,afc=-620,seq=28,su=4.20,te=28.80,md=0,pa=97946,tmp2=34.00,hu=32.41]
+00m29s813: [#DAT:q=85,afc=-460,seq=31,su=4.20,te=28.78,md=0,pa=97938,tmp2=34.10,hu=32.81]
+00m30s844: [#DAT:q=90,afc=-460,seq=32,su=4.19,te=28.80,md=0,pa=97938,tmp2=34.20,hu=32.89]
+00m31s782: [#DAT:q=95,afc=-620,seq=33,su=4.19,te=28.82,md=0,pa=97936,tmp2=34.30,hu=32.89]
+00m32s813: [#DAT:q=95,afc=-460,seq=34,su=4.19,te=28.84,md=0,pa=97932,tmp2=34.30,hu=32.89]
+00m33s766: [#DAT:q=82,afc=-620,seq=35,su=4.19,te=28.90,md=0,pa=97942,tmp2=34.50,hu=32.97]
+00m34s799: [#DAT:q=A3,afc=-620,seq=36,su=4.20,te=28.94,md=0,pa=97896,tmp2=34.40,hu=33.11]
+00m35s751: [#DAT:q=90,afc=-620,seq=37,su=4.19,te=29.02,md=0,pa=97900,tmp2=34.60,hu=33.31]
+00m36s799: [#DAT:q=9C,afc=-620,seq=38,su=4.19,te=29.08,md=0,pa=97900,tmp2=34.70,hu=33.65]
+00m37s753: [#DAT:q=91,afc=-620,seq=39,su=4.19,te=29.18,md=0,pa=97906,tmp2=34.90,hu=33.93]
+00m38s721: [#DAT:q=91,afc=-620,seq=40,su=4.19,te=29.28,md=0,pa=97952,tmp2=35.20,hu=34.29]
+00m39s753: [#DAT:q=7E,afc=-620,seq=41,su=4.19,te=29.38,md=0,pa=97942,tmp2=35.20,hu=34.73]
+00m40s737: [#DAT:q=88,afc=-620,seq=42,su=4.19,te=29.46,md=0,pa=97942,tmp2=35.30,hu=35.09]
+00m41s690: [#DAT:q=8D,afc=-620,seq=43,su=4.19,te=29.54,md=0,pa=97944,tmp2=35.40,hu=35.25]
+00m42s721: [#DAT:q=9F,afc=-780,seq=44,su=4.19,te=29.60,md=0,pa=97922,tmp2=35.40,hu=35.41]
+00m43s675: [#DAT:q=A0,afc=-620,seq=45,su=4.19,te=29.68,md=0,pa=97924,tmp2=35.60,hu=35.54]
+00m44s707: [#DAT:q=A3,afc=-620,seq=46,su=4.19,te=29.76,md=0,pa=97928,tmp2=35.70,hu=35.61]
+00m45s661: [#DAT:q=9B,afc=-780,seq=47,su=4.19,te=29.84,md=0,pa=97942,tmp2=35.80,hu=35.43]
+00m45s661: # ENQUEUE: gs=1s0
+00m45s661: # EXE_NOW: gs=1s0
+00m46s457: [#RES:q=9C:]
+00m46s457: # REPLY to gs=1s0: 
+00m46s691: [#DAT:q=9A,afc=-780,seq=48,su=4.19,te=29.94,md=0,pa=97940,tmp2=35.90,hu=35.12]
+00m47s631: [#DAT:q=A6,afc=-780,seq=49,su=4.19,te=30.02,md=0,pa=97962,tmp2=36.00,hu=34.77]
+00m48s615: [#DAT:q=B7,afc=-780,seq=50,su=4.19,te=30.08,md=0,pa=97956,tmp2=36.10,hu=34.57]
+00m49s756: [#DAT:q=AD,afc=-620,seq=51,su=4.19,te=30.12,md=0,pa=97942,tmp2=36.00,hu=34.35]
+00m50s648: [#DAT:q=BB,afc=-780,seq=52,su=4.19,te=30.14,md=0,pa=97960,tmp2=36.10,hu=33.64]
+00m51s584: [#DAT:q=C3,afc=-780,seq=53,su=4.19,te=30.12,md=0,pa=97958,tmp2=36.00,hu=32.32]
+00m52s616: [#DAT:q=B5,afc=-780,seq=54,su=4.19,te=29.98,md=0,pa=97972,tmp2=35.90,hu=31.70]
+00m53s569: [#DAT:q=B1,afc=-780,seq=55,su=4.19,te=29.92,md=0,pa=97970,tmp2=35.80,hu=32.96]
+00m54s601: [#DAT:q=B6,afc=-930,seq=56,su=4.19,te=29.86,md=0,pa=97972,tmp2=35.80,hu=33.92]
+00m55s554: [#DAT:q=B3,afc=-780,seq=57,su=4.19,te=29.80,md=0,pa=97966,tmp2=35.70,hu=34.35]
+00m56s586: [#DAT:q=B0,afc=-780,seq=58,su=4.19,te=29.70,md=0,pa=97972,tmp2=35.70,hu=34.83]
+00m57s539: [#DAT:q=AA,afc=-780,seq=59,su=4.19,te=29.58,md=0,pa=97978,tmp2=35.70,hu=35.59]
+00m58s570: [#DAT:q=7D,afc=-780,seq=60,su=4.19,te=29.44,md=0,pa=97968,tmp2=35.60,hu=35.79]
+00m59s524: [#DAT:q=A0,afc=-780,seq=61,su=4.19,te=29.34,md=0,pa=97974,tmp2=35.60,hu=35.77]
+01m00s555: [#DAT:q=A3,afc=-780,seq=62,su=4.19,te=29.28,md=0,pa=97972,tmp2=35.60,hu=35.41]
+01m01s508: [#DAT:q=AB,afc=-780,seq=63,su=4.19,te=29.20,md=0,pa=97972,tmp2=35.60,hu=36.50]
+01m02s493: [#DAT:q=A5,afc=-930,seq=64,su=4.19,te=29.08,md=0,pa=97972,tmp2=35.60,hu=37.21]
+01m03s477: [#DAT:q=A8,afc=-620,seq=65,su=4.19,te=28.94,md=0,pa=97970,tmp2=35.60,hu=36.61]
+01m04s509: [#DAT:q=A6,afc=-780,seq=66,su=4.19,te=28.82,md=0,pa=97964,tmp2=35.60,hu=36.29]
+01m05s447: [#DAT:q=9C,afc=-780,seq=67,su=4.19,te=28.72,md=0,pa=97972,tmp2=35.50,hu=36.57]
+01m06s494: [#DAT:q=9E,afc=-780,seq=68,su=4.19,te=28.56,md=0,pa=97972,tmp2=35.50,hu=37.08]
+01m07s447: [#DAT:q=AA,afc=-780,seq=69,su=4.19,te=28.46,md=0,pa=97970,tmp2=35.40,hu=36.62]
+01m08s478: [#DAT:q=A7,afc=-780,seq=70,su=4.19,te=28.38,md=0,pa=97970,tmp2=35.40,hu=36.16]
+01m09s432: [#DAT:q=AF,afc=-620,seq=71,su=4.18,te=28.34,md=0,pa=97974,tmp2=35.40,hu=36.23]
+01m10s401: [#DAT:q=A8,afc=-780,seq=72,su=4.19,te=28.32,md=0,pa=97968,tmp2=35.30,hu=36.70]
+01m11s401: [#DAT:q=A9,afc=-620,seq=73,su=4.18,te=28.30,md=0,pa=97960,tmp2=35.30,hu=37.60]
+01m12s401: [#DAT:q=AF,afc=-620,seq=74,su=4.19,te=28.26,md=0,pa=97956,tmp2=35.30,hu=38.11]
+01m13s388: [#DAT:q=A9,afc=-780,seq=75,su=4.18,te=28.24,md=0,pa=97960,tmp2=35.20,hu=38.01]
+01m14s356: [#DAT:q=A2,afc=-620,seq=76,su=4.18,te=28.22,md=0,pa=97968,tmp2=35.10,hu=37.77]
+01m15s356: [#DAT:q=9E,afc=-780,seq=77,su=4.19,te=28.20,md=0,pa=97968,tmp2=35.00,hu=37.42]
+01m16s388: [#DAT:q=A2,afc=-620,seq=78,su=4.18,te=28.18,md=0,pa=97972,tmp2=35.00,hu=37.28]
+01m17s340: [#DAT:q=A3,afc=-620,seq=79,su=4.18,te=28.18,md=0,pa=97968,tmp2=34.90,hu=36.95]
+01m17s340: # ENQUEUE: gs=1s0
+01m17s340: # EXE_NOW: gs=1s0
+01m18s013: [#TIM:]
+01m18s013: # TIMEOUT dongle: gs=1s0
+01m18s325: [#DAT:q=9C,afc=-780,seq=80,su=4.18,te=28.16,md=0,pa=97976,tmp2=34.90,hu=36.61]
+01m19s355: [#DAT:q=9D,afc=-780,seq=81,su=4.18,te=28.16,md=0,pa=97972,tmp2=34.80,hu=36.04]
+01m21s338: [#DAT:q=A5,afc=-620,seq=83,su=4.18,te=28.12,md=0,pa=97982,tmp2=34.80,hu=34.77]
+01m22s292: [#DAT:q=A3,afc=-620,seq=84,su=4.19,te=28.10,md=0,pa=97976,tmp2=34.70,hu=34.26]
+01m22s323: # ENQUEUE: gs=1s0
+01m22s323: # EXE_NOW: gs=1s0
+01m22s995: [#TIM:]
+01m22s995: # TIMEOUT dongle: gs=1s0
+01m23s307: [#DAT:q=A5,afc=-620,seq=85,su=4.19,te=28.10,md=0,pa=97978,tmp2=34.70,hu=33.90]
+01m24s263: [#DAT:q=A9,afc=-620,seq=86,su=4.18,te=28.10,md=0,pa=97974,tmp2=34.70,hu=33.70]
+01m25s294: [#DAT:q=A8,afc=-620,seq=87,su=4.18,te=28.08,md=0,pa=97976,tmp2=34.70,hu=33.50]
+01m25s653: # ENQUEUE: gndAP=345:48975
+01m25s653: # EXE_NOW: gndAP=345:48975
+01m26s217: [#RES:q=A7:345:48975]
+01m26s217: # REPLY to gndAP=345:48975: 345:48975
+01m26s217: # ENQUEUE: relAP=30345:118
+01m26s419: # EXE_NOW: relAP=30345:118
+01m26s498: [#DAT:q=A6,afc=-620,seq=88,su=4.19,te=28.08,md=0,pa=97974,tmp2=34.70,hu=33.46]
+01m27s076: [#TIM:]
+01m27s076: # TIMEOUT dongle: relAP=30345:118
+01m27s296: [#DAT:q=A5,afc=-620,seq=89,su=4.18,te=28.08,md=0,pa=97978,tmp2=34.70,hu=33.58]
+01m27s576: [#RES:q=A6:30345:118]
+01m28s264: [#DAT:q=A5,afc=-780,seq=90,su=4.18,te=28.08,md=0,pa=97984,tmp2=34.70,hu=33.66]
+01m28s264: # ENQUEUE: gs=1s0
+01m28s264: # EXE_NOW: gs=1s0
+01m28s951: [#TIM:]
+01m28s951: # TIMEOUT dongle: gs=1s0
+01m29s264: [#DAT:q=A3,afc=-460,seq=91,su=4.18,te=28.08,md=0,pa=97978,tmp2=34.70,hu=33.77]
+01m30s280: [#DAT:q=A6,afc=-620,seq=92,su=4.18,te=28.10,md=0,pa=97978,tmp2=34.70,hu=34.02]
+01m31s280: [#DAT:q=A5,afc=-620,seq=93,su=4.18,te=28.10,md=0,pa=97968,tmp2=34.70,hu=34.46]
+01m32s311: [#DAT:q=A3,afc=-620,seq=94,su=4.18,te=28.12,md=0,pa=97980,tmp2=34.70,hu=35.03]
+01m33s186: [#DAT:q=A4,afc=-620,seq=95,su=4.18,te=28.14,md=0,pa=97978,tmp2=34.70,hu=35.54]
+01m34s186: [#DAT:q=A5,afc=-780,seq=96,su=4.18,te=28.16,md=0,pa=97976,tmp2=34.70,hu=36.08]
+01m35s156: [#DAT:q=A3,afc=-620,seq=97,su=4.18,te=28.18,md=0,pa=97978,tmp2=34.70,hu=36.61]
+01m35s156: # ENQUEUE: gs=1s0
+01m35s156: # EXE_NOW: gs=1s0
+01m35s827: [#TIM:]
+01m35s827: # TIMEOUT dongle: gs=1s0
+01m36s140: [#DAT:q=A1,afc=-620,seq=98,su=4.17,te=28.20,md=0,pa=97976,tmp2=34.80,hu=36.98]
+01m37s140: [#DAT:q=A2,afc=-620,seq=99,su=4.18,te=28.20,md=0,pa=97980,tmp2=34.70,hu=37.25]
+01m38s156: [#DAT:q=9F,afc=-620,seq=100,su=4.18,te=28.20,md=0,pa=97974,tmp2=34.70,hu=37.28]
+01m39s125: [#DAT:q=A0,afc=-620,seq=101,su=4.17,te=28.22,md=0,pa=97972,tmp2=34.70,hu=37.38]
+01m40s110: [#DAT:q=A0,afc=-620,seq=102,su=4.17,te=28.22,md=0,pa=97978,tmp2=34.70,hu=37.57]
+01m41s157: [#DAT:q=98,afc=-620,seq=103,su=4.18,te=28.22,md=0,pa=97974,tmp2=34.70,hu=37.45]
+01m41s157: # ENQUEUE: gs=1s0
+01m41s157: # EXE_NOW: gs=1s0
+01m41s844: [#TIM:]
+01m41s844: # TIMEOUT dongle: gs=1s0
+01m42s110: [#DAT:q=A1,afc=-620,seq=104,su=4.17,te=28.22,md=0,pa=97978,tmp2=34.70,hu=37.08]
+01m43s110: [#DAT:q=A0,afc=-620,seq=105,su=4.17,te=28.22,md=1,lat=34589231,lon=-97312815,alt=334,spd=0.20,ang=213.6,pa=97976,sats=4,hdop=3.25,tmp2=34.60,hu=36.88]
+01m44s094: [#DAT:q=9D,afc=-460,seq=106,su=4.17,te=28.22,md=1,lat=34589226,lon=-97312817,alt=333,spd=0.30,ang=204.7,pa=97972,sats=3,hdop=3.75,tmp2=34.60,hu=37.12]
+01m45s095: [#DAT:q=9C,afc=-460,seq=107,su=4.17,te=28.22,md=1,lat=34589227,lon=-97312816,alt=333,spd=0.30,ang=202.7,pa=97980,sats=3,hdop=3.75,tmp2=34.60,hu=37.45]
+01m46s079: [#DAT:q=97,afc=-620,seq=108,su=4.17,te=28.22,md=1,lat=34589231,lon=-97312813,alt=333,spd=0.10,ang=149.3,pa=97978,sats=3,hdop=3.75,tmp2=34.60,hu=37.62]
+01m47s064: [#DAT:q=97,afc=-460,seq=109,su=4.17,te=28.22,md=1,lat=34589240,lon=-97312808,alt=333,spd=0.00,ang=78.2,pa=97976,sats=4,hdop=3.25,tmp2=34.50,hu=37.21]
+01m48s205: [#DAT:q=95,afc=-460,seq=110,su=4.17,te=28.20,md=1,lat=34589239,lon=-97312807,alt=333,spd=0.00,ang=83.2,pa=97976,sats=4,hdop=3.25,tmp2=34.50,hu=36.78]
+01m49s064: [#DAT:q=96,afc=-620,seq=111,su=4.17,te=28.18,md=1,lat=34589233,lon=-97312811,alt=333,spd=0.00,ang=204.4,pa=97974,sats=3,hdop=3.75,tmp2=34.50,hu=35.87]
+01m50s049: [#DAT:q=A3,afc=-620,seq=112,su=4.17,te=28.14,md=1,lat=34589206,lon=-97312825,alt=331,spd=0.10,ang=240.8,pa=97974,sats=4,hdop=3.25,tmp2=34.50,hu=35.03]
+01m52s059: [#DAT:q=A0,afc=-620,seq=114,su=4.17,te=28.10,md=1,lat=34589178,lon=-97312840,alt=328,spd=0.10,ang=221.9,pa=97974,sats=4,hdop=3.25,tmp2=34.40,hu=34.06]
+01m53s043: [#DAT:q=A4,afc=-620,seq=115,su=4.17,te=28.08,md=1,lat=34589174,lon=-97312842,alt=328,spd=0.30,ang=208.2,pa=97972,sats=4,hdop=3.25,tmp2=34.40,hu=33.82]
+01m53s996: [#DAT:q=A1,afc=-460,seq=116,su=4.17,te=28.06,md=1,lat=34589173,lon=-97312843,alt=328,spd=0.30,ang=214.8,pa=97970,sats=4,hdop=3.25,tmp2=34.40,hu=33.74]
+01m55s059: [#DAT:q=9A,afc=-460,seq=117,su=4.17,te=28.04,md=1,lat=34589185,lon=-97312838,alt=329,spd=0.20,ang=213.0,pa=97974,sats=4,hdop=3.25,tmp2=34.40,hu=33.60]
+01m55s981: [#DAT:q=9C,afc=-780,seq=118,su=4.18,te=28.02,md=1,lat=34589191,lon=-97312836,alt=329,spd=0.20,ang=209.1,pa=97972,sats=4,hdop=3.25,tmp2=34.30,hu=34.00]
+01m56s965: [#DAT:q=92,afc=-460,seq=119,su=4.18,te=28.00,md=1,lat=34589197,lon=-97312834,alt=330,spd=0.30,ang=209.1,pa=97978,sats=4,hdop=3.25,tmp2=34.30,hu=34.41]
+01m57s967: [#DAT:q=89,afc=-460,seq=120,su=4.17,te=28.00,md=1,lat=34589211,lon=-97312827,alt=331,spd=0.20,ang=219.2,pa=97978,sats=4,hdop=3.25,tmp2=34.30,hu=34.75]
+01m58s950: [#DAT:q=98,afc=-620,seq=121,su=4.17,te=27.98,md=1,lat=34589236,lon=-97312814,alt=332,spd=0.20,ang=181.9,pa=97974,sats=4,hdop=3.25,tmp2=34.30,hu=35.02]
+01m59s935: [#DAT:q=8B,afc=-460,seq=122,su=4.17,te=27.98,md=1,lat=34589256,lon=-97312805,alt=333,spd=0.10,ang=108.1,pa=97970,sats=4,hdop=3.25,tmp2=34.40,hu=35.15]
+02m00s935: [#DAT:q=86,afc=-620,seq=123,su=4.17,te=27.96,md=1,new=0,lat=34589256,lon=-97312805,alt=333,spd=0.00,ang=54.7,pa=97966,sats=4,hdop=3.25,tmp2=34.30,hu=34.82]
+02m01s935: [#DAT:q=76,afc=-460,seq=124,su=4.17,te=27.94,md=1,lat=34589288,lon=-97312790,alt=335,spd=0.00,ang=146.2,pa=97970,sats=4,hdop=3.25,tmp2=34.40,hu=34.68]
+02m02s951: [#DAT:q=90,afc=-460,seq=125,su=4.17,te=27.94,md=1,new=0,lat=34589288,lon=-97312790,alt=335,spd=0.10,ang=40.0,pa=97970,sats=4,hdop=3.25,tmp2=34.40,hu=34.71]
+02m03s921: [#DAT:q=94,afc=-620,seq=126,su=4.17,te=27.94,md=1,lat=34589307,lon=-97312785,alt=336,spd=0.10,ang=296.3,pa=97972,sats=4,hdop=3.25,tmp2=34.40,hu=35.02]
+02m04s889: [#DAT:q=9B,afc=-620,seq=127,su=4.17,te=27.94,md=1,new=0,lat=34589307,lon=-97312785,alt=336,spd=0.10,ang=300.9,pa=97976,sats=4,hdop=3.25,tmp2=34.40,hu=35.69]
+02m05s889: [#DAT:q=93,afc=-620,seq=128,su=4.17,te=27.94,md=1,lat=34589316,lon=-97312781,alt=337,spd=0.10,ang=331.8,pa=97974,sats=4,hdop=3.25,tmp2=34.40,hu=36.39]
+02m06s875: [#DAT:q=84,afc=-620,seq=129,su=4.17,te=27.96,md=1,lat=34589322,lon=-97312779,alt=337,spd=0.10,ang=331.3,pa=97970,sats=4,hdop=3.25,tmp2=34.40,hu=37.50]
+02m07s858: [#DAT:q=88,afc=-460,seq=130,su=4.17,te=27.96,md=1,lat=34589417,lon=-97312733,alt=344,spd=0.00,ang=349.9,pa=97972,sats=5,hdop=1.25,tmp2=34.50,hu=38.24]
+02m08s889: [#DAT:q=82,afc=-620,seq=131,su=4.17,te=27.98,md=1,lat=34589420,lon=-97312733,alt=344,spd=0.10,ang=315.9,pa=97964,sats=5,hdop=1.25,tmp2=34.40,hu=38.51]
+02m11s937: [#DAT:q=90,afc=-620,seq=134,su=4.17,te=28.00,md=1,lat=34589426,lon=-97312727,alt=344,spd=0.10,ang=31.9,pa=97970,sats=5,hdop=1.25,tmp2=34.50,hu=38.21]
+02m12s812: [#DAT:q=97,afc=-620,seq=135,su=4.17,te=28.00,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.20,ang=36.8,pa=97970,sats=5,hdop=1.25,tmp2=34.40,hu=37.84]
+02m13s796: [#DAT:q=9A,afc=-620,seq=136,su=4.17,te=28.00,md=1,lat=34589428,lon=-97312724,alt=344,spd=0.20,ang=30.8,pa=97974,sats=5,hdop=1.25,tmp2=34.40,hu=37.57]
+02m14s797: [#DAT:q=9B,afc=-620,seq=137,su=4.17,te=28.02,md=1,lat=34589428,lon=-97312724,alt=344,spd=0.10,ang=29.1,pa=97978,sats=5,hdop=1.25,tmp2=34.40,hu=37.66]
+02m15s781: [#DAT:q=9A,afc=-460,seq=138,su=4.17,te=28.02,md=1,lat=34589429,lon=-97312723,alt=344,spd=0.10,ang=22.0,pa=97970,sats=5,hdop=1.25,tmp2=34.40,hu=38.11]
+02m16s766: [#DAT:q=99,afc=-620,seq=139,su=4.17,te=28.04,md=1,lat=34589427,lon=-97312723,alt=344,spd=0.10,ang=22.0,pa=97978,sats=5,hdop=1.25,tmp2=34.40,hu=38.14]
+02m17s938: [#DAT:q=9B,afc=-620,seq=140,su=4.17,te=28.04,md=1,lat=34589427,lon=-97312723,alt=344,spd=0.00,ang=64.9,pa=97968,sats=5,hdop=1.25,tmp2=34.40,hu=38.40]
+02m18s750: [#DAT:q=99,afc=-620,seq=141,su=4.17,te=28.06,md=1,lat=34589425,lon=-97312722,alt=344,spd=0.00,ang=45.3,pa=97974,sats=5,hdop=1.25,tmp2=34.40,hu=39.03]
+02m19s751: [#DAT:q=99,afc=-460,seq=142,su=4.17,te=28.08,md=1,lat=34589425,lon=-97312721,alt=344,spd=0.10,ang=117.6,pa=97972,sats=5,hdop=1.25,tmp2=34.40,hu=39.66]
+02m20s751: [#DAT:q=9D,afc=-460,seq=143,su=4.17,te=28.08,md=1,lat=34589424,lon=-97312719,alt=344,spd=0.00,ang=114.5,pa=97978,sats=5,hdop=1.25,tmp2=34.40,hu=39.70]
+02m21s735: [#DAT:q=9B,afc=-460,seq=144,su=4.17,te=28.10,md=1,lat=34589424,lon=-97312721,alt=344,spd=0.20,ang=73.2,pa=97970,sats=5,hdop=1.25,tmp2=34.30,hu=38.99]
+02m22s735: [#DAT:q=9B,afc=-460,seq=145,su=4.17,te=28.12,md=1,lat=34589423,lon=-97312721,alt=344,spd=0.20,ang=73.2,pa=97972,sats=5,hdop=1.25,tmp2=34.30,hu=38.26]
+02m23s714: [#DAT:q=99,afc=-460,seq=146,su=4.17,te=28.16,md=1,lat=34589424,lon=-97312720,alt=344,spd=0.10,ang=40.3,pa=97976,sats=5,hdop=1.25,tmp2=34.30,hu=37.79]
+02m24s698: [#DAT:q=9B,afc=-460,seq=147,su=4.17,te=28.18,md=1,new=0,lat=34589424,lon=-97312720,alt=344,spd=0.10,ang=8.5,pa=97972,sats=5,hdop=1.25,tmp2=34.30,hu=37.28]
+02m25s698: [#DAT:q=9D,afc=-460,seq=148,su=4.17,te=28.20,md=1,lat=34589424,lon=-97312720,alt=344,spd=0.00,ang=343.0,pa=97976,tmp2=34.30,hu=37.05]
+02m26s699: [#DAT:q=9B,afc=-310,seq=149,su=4.17,te=28.22,md=1,lat=34589425,lon=-97312720,alt=344,spd=0.00,ang=24.9,pa=97976,tmp2=34.20,hu=37.64]
+02m27s667: [#DAT:q=9B,afc=-460,seq=150,su=4.17,te=28.24,md=1,lat=34589425,lon=-97312720,alt=344,spd=0.00,ang=185.6,pa=97976,tmp2=34.20,hu=38.55]
+02m28s684: [#DAT:q=98,afc=-460,seq=151,su=4.17,te=28.26,md=1,lat=34589425,lon=-97312720,alt=344,spd=0.00,ang=197.2,pa=97978,tmp2=34.20,hu=39.35]
+02m29s684: [#DAT:q=9B,afc=-460,seq=152,su=4.17,te=28.30,md=1,lat=34589424,lon=-97312720,alt=344,spd=0.00,ang=241.5,pa=97972,tmp2=34.20,hu=39.92]
+02m30s668: [#DAT:q=A3,afc=-460,seq=153,su=4.17,te=28.30,md=1,lat=34589424,lon=-97312720,alt=344,spd=0.00,ang=8.1,pa=97974,tmp2=34.20,hu=39.75]
+02m31s652: [#DAT:q=A7,afc=-310,seq=154,su=4.17,te=28.32,md=1,lat=34589425,lon=-97312720,alt=344,spd=0.00,ang=8.6,pa=97972,tmp2=34.20,hu=39.28]
+02m32s668: [#DAT:q=A7,afc=-310,seq=155,su=4.17,te=28.32,md=1,lat=34589425,lon=-97312720,alt=344,spd=0.10,ang=14.2,pa=97974,tmp2=34.20,hu=38.55]
+02m33s653: [#DAT:q=9E,afc=-310,seq=156,su=4.17,te=28.34,md=1,lat=34589426,lon=-97312720,alt=344,spd=0.10,ang=9.1,pa=97976,tmp2=34.10,hu=38.58]
+02m34s638: [#DAT:q=A0,afc=-310,seq=157,su=4.17,te=28.34,md=1,lat=34589427,lon=-97312720,alt=344,spd=0.10,ang=328.7,pa=97974,tmp2=34.10,hu=38.31]
+02m35s669: [#DAT:q=A0,afc=-310,seq=158,su=4.17,te=28.32,md=1,lat=34589427,lon=-97312720,alt=344,spd=0.10,ang=282.0,pa=97974,tmp2=34.10,hu=37.74]
+02m36s592: [#DAT:q=A0,afc=-310,seq=159,su=4.17,te=28.32,md=1,lat=34589427,lon=-97312721,alt=344,spd=0.00,ang=199.9,pa=97978,tmp2=34.00,hu=37.34]
+02m37s576: [#DAT:q=A1,afc=-460,seq=160,su=4.17,te=28.30,md=1,lat=34589427,lon=-97312721,alt=344,spd=0.00,ang=270.5,pa=97978,tmp2=34.00,hu=37.17]
+02m38s560: [#DAT:q=A4,afc=-310,seq=161,su=4.17,te=28.30,md=1,lat=34589427,lon=-97312722,alt=344,spd=0.10,ang=250.6,pa=97972,tmp2=34.00,hu=36.70]
+02m39s560: [#DAT:q=A4,afc=-460,seq=162,su=4.17,te=28.30,md=1,lat=34589427,lon=-97312723,alt=344,spd=0.00,ang=226.0,pa=97976,tmp2=34.00,hu=36.90]
+02m40s561: [#DAT:q=A4,afc=-310,seq=163,su=4.17,te=28.30,md=1,lat=34589427,lon=-97312723,alt=344,spd=0.10,ang=212.0,pa=97980,tmp2=33.90,hu=37.77]
+02m41s576: [#DAT:q=A4,afc=-460,seq=164,su=4.17,te=28.30,md=1,lat=34589426,lon=-97312724,alt=344,spd=0.00,ang=189.8,pa=97974,tmp2=33.90,hu=38.38]
+02m42s608: [#DAT:q=AA,afc=-310,seq=165,su=4.17,te=28.30,md=1,lat=34589426,lon=-97312724,alt=344,spd=0.10,ang=325.1,pa=97974,tmp2=33.90,hu=38.48]
+02m43s546: [#DAT:q=AB,afc=-310,seq=166,su=4.17,te=28.30,md=1,lat=34589427,lon=-97312724,alt=344,spd=0.10,ang=345.1,pa=97980,tmp2=33.90,hu=38.21]
+02m44s593: [#DAT:q=AC,afc=-310,seq=167,su=4.17,te=28.30,md=1,lat=34589428,lon=-97312725,alt=344,spd=0.10,ang=335.7,pa=97972,tmp2=33.80,hu=38.01]
+02m45s577: [#DAT:q=A9,afc=-310,seq=168,su=4.17,te=28.26,md=1,lat=34589428,lon=-97312725,alt=344,spd=0.00,ang=146.7,pa=97974,tmp2=33.80,hu=37.40]
+02m46s531: [#DAT:q=A5,afc=-310,seq=169,su=4.17,te=28.24,md=1,lat=34589428,lon=-97312725,alt=344,spd=0.10,ang=187.0,pa=97976,tmp2=33.80,hu=36.43]
+02m47s547: [#DAT:q=A6,afc=-460,seq=170,su=4.17,te=28.22,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.00,ang=129.0,pa=97974,tmp2=33.80,hu=35.73]
+02m48s515: [#DAT:q=A2,afc=-310,seq=171,su=4.17,te=28.20,md=1,lat=34589427,lon=-97312724,alt=344,spd=0.00,ang=214.3,pa=97976,tmp2=33.80,hu=35.27]
+02m49s500: [#DAT:q=9E,afc=-310,seq=172,su=4.17,te=28.20,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.00,ang=217.2,pa=97982,tmp2=33.80,hu=35.41]
+02m50s531: [#DAT:q=A6,afc=-310,seq=173,su=4.17,te=28.18,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.00,ang=293.5,pa=97976,tmp2=33.80,hu=35.63]
+02m51s563: [#DAT:q=A4,afc=-310,seq=174,su=4.17,te=28.16,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.00,ang=315.4,pa=97974,tmp2=33.70,hu=35.37]
+02m52s501: [#DAT:q=9C,afc=-310,seq=175,su=4.17,te=28.16,md=1,lat=34589427,lon=-97312725,alt=344,spd=0.00,ang=137.4,pa=97974,tmp2=33.70,hu=34.93]
+02m53s485: [#DAT:q=A6,afc=-310,seq=176,su=4.17,te=28.14,md=1,lat=34589426,lon=-97312725,alt=344,spd=0.00,ang=130.7,pa=97980,tmp2=33.70,hu=34.67]
+02m54s563: [#DAT:q=A7,afc=-310,seq=177,su=4.16,te=28.16,md=1,lat=34589426,lon=-97312724,alt=344,spd=0.10,ang=159.3,pa=97974,tmp2=33.70,hu=34.46]
+02m55s491: [#DAT:q=AB,afc=-310,seq=178,su=4.17,te=28.16,md=1,lat=34589425,lon=-97312724,alt=344,spd=0.10,ang=180.1,pa=97962,tmp2=33.70,hu=34.36]
+02m56s475: [#DAT:q=9C,afc=-310,seq=179,su=4.16,te=28.18,md=1,lat=34589425,lon=-97312724,alt=344,spd=0.20,ang=162.7,pa=97958,tmp2=33.70,hu=34.73]
+03m13s504: # STOP
