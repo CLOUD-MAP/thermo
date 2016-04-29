@@ -1,8 +1,0 @@
-*** Calculated Offset Values ***
-* Time interval for offset calculation
-Start Time: 08-Feb-2016 17:11:28
-Stop Time : 08-Feb-2016 18:12:35
-* Amount to be added to sensor
-Pressure (Pa): 71.500828
-Temperature (C): -0.370164
-Humidity (percent): -0.071849

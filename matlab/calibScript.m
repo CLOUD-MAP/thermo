@@ -80,6 +80,7 @@ if quickLookFlag
     imgDirName = sprintf('%sthermo%squickLooks%s%s%s%4.4d%s%2.2d%s%2.2d%s', ...
         baseDir, filesep, filesep, sensorType, filesep, ...
         procYear, filesep, procMonth, filesep, procDay, filesep);
+    % If directory does not exist, create it
     if ~exist(imgDirName, 'dir')
         mkdir(imgDirName)
     end
@@ -102,6 +103,17 @@ switch sensorType
         end
         [windsond, status] = readWindsond(dataDirName, sensorFileName);
         sensor = windsond;
+        sensorBase = sensorFileName(10:12);
+        sensorBoom = sensorFileName(14:15);
+        sensorNumber = sensorFileName(17:18);
+        if quickLookFlag
+            imgFileNamePressure = sprintf('%4.4d%2.2d%2.2d_%s_%s_pressure.png', ...
+                procYear, procMonth, procDay, sensorBase, sensorNumber);
+            imgFileNameTemperature = sprintf('%4.4d%2.2d%2.2d_%s_%s_temperature.png', ...
+                procYear, procMonth, procDay, sensorBoom, sensorNumber);
+            imgFileNameHumidity = sprintf('%4.4d%2.2d%2.2d_%s_%s_humidity.png', ...
+                procYear, procMonth, procDay, sensorBoom, sensorNumber);
+        end
     case 'iMet'
         % Interactively choose the file name
         % First see if files exist
@@ -117,6 +129,16 @@ switch sensorType
         end
         [iMetXQ, status] = readiMetXQ(dataDirName, sensorFileName);
         sensor = iMetXQ;
+        sensorUnit = sensorFileName(10:11);
+        sensorNumber = sensorFileName(13:14);
+        if quickLookFlag
+            imgFileNamePressure = sprintf('%4.4d%2.2d%2.2d_%s_%s_pressure.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            imgFileNameTemperature = sprintf('%4.4d%2.2d%2.2d_%s_%s_temperature.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            imgFileNameHumidity = sprintf('%4.4d%2.2d%2.2d_%s_%s_humidity.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+        end
 end
 
 % Check if the mts file available, if not, try to retrieve it
@@ -124,14 +146,13 @@ end
     procStation, fetchFlag, baseDir);
 
 if status
-    sensorType = 'Mesonet';
     if strcmp(procStation, 'nwcm');
         NWCFlag = true;
     else
         NWCFlag = false;
     end
     % Find the appropriate directory based on instrument type
-    mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+    mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, 'Mesonet');
     [mts, status] = readMTSData(mesoFileName, mesoDirName, NWCFlag);
 end
 
@@ -237,18 +258,46 @@ fprintf('Temperature (C): %f\n', offsetTemperature_C);
 fprintf('Humidity (percent): %f\n', offsetHumidity_perCent);
 % If offset flag set, print the offset file
 if offsetFlag
-    ind = strfind(sensorFileName, '.');
-    offsetFileName = strrep(sensorFileName, sensorFileName(ind: end), '_offset.txt');
-    fp = fopen([ dataDirName offsetFileName ], 'wt');
-    fprintf(fp, '*** Calculated Offset Values ***\n');
-    fprintf(fp, '* Time interval for offset calculation\n');
-    fprintf(fp, 'Start Time: %s\n', datestr(timeLim(1)));
-    fprintf(fp, 'Stop Time : %s\n', datestr(timeLim(2)));
-    fprintf(fp, '* Amount to be added to sensor\n');
-    fprintf(fp, 'Pressure (Pa): %f\n', offsetPressure_Pa);
-    fprintf(fp, 'Temperature (C): %f\n', offsetTemperature_C);
-    fprintf(fp, 'Humidity (percent): %f\n', offsetHumidity_perCent);
-    fclose(fp);
+    switch sensorType
+        case 'iMet'
+            % one file for all
+            offsetFileNameUnit = sprintf('%4.4d%2.2d%2.2d_%s_%s_offset.txt', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            fp = fopen([ dataDirName offsetFileNameUnit ], 'wt');
+            fprintf(fp, '*** Calculated Offset Values ***\n');
+            fprintf(fp, '* Time interval for offset calculation\n');
+            fprintf(fp, 'Start Time: %s\n', datestr(timeLim(1)));
+            fprintf(fp, 'Stop Time : %s\n', datestr(timeLim(2)));
+            fprintf(fp, '* Amount to be added to sensor\n');
+            fprintf(fp, 'Pressure (Pa): %f\n', offsetPressure_Pa);
+            fprintf(fp, 'Temperature (C): %f\n', offsetTemperature_C);
+            fprintf(fp, 'Humidity (percent): %f\n', offsetHumidity_perCent);
+            fclose(fp);
+        case 'Windsond'
+            % file for pressure
+            offsetFileNameBase = sprintf('%4.4d%2.2d%2.2d_%s_%s_offset.txt', ...
+                procYear, procMonth, procDay, sensorBase, sensorNumber);
+            fp = fopen([ dataDirName offsetFileNameBase ], 'wt');
+            fprintf(fp, '*** Calculated Offset Values ***\n');
+            fprintf(fp, '* Time interval for offset calculation\n');
+            fprintf(fp, 'Start Time: %s\n', datestr(timeLim(1)));
+            fprintf(fp, 'Stop Time : %s\n', datestr(timeLim(2)));
+            fprintf(fp, '* Amount to be added to sensor\n');
+            fprintf(fp, 'Pressure (Pa): %f\n', offsetPressure_Pa);
+            fclose(fp);
+            % file for temperature and humidity
+            offsetFileNameBoom = sprintf('%4.4d%2.2d%2.2d_%s_%s_offset.txt', ...
+                procYear, procMonth, procDay, sensorBoom, sensorNumber);
+            fp = fopen([ dataDirName offsetFileNameBoom ], 'wt');
+            fprintf(fp, '*** Calculated Offset Values ***\n');
+            fprintf(fp, '* Time interval for offset calculation\n');
+            fprintf(fp, 'Start Time: %s\n', datestr(timeLim(1)));
+            fprintf(fp, 'Stop Time : %s\n', datestr(timeLim(2)));
+            fprintf(fp, '* Amount to be added to sensor\n');
+            fprintf(fp, 'Temperature (C): %f\n', offsetTemperature_C);
+            fprintf(fp, 'Humidity (percent): %f\n', offsetHumidity_perCent);
+            fclose(fp);
+    end
 end
 
 %% Plot the data
@@ -281,9 +330,7 @@ title(sensorFileName, 'interpreter', 'non')
 shg
 if quickLookFlag
     % Create the quick look plot
-    ind = strfind(sensorFileName, '.');
-    imgFileName = strrep(sensorFileName, sensorFileName(ind: end), '_pressure.png');
-    print([ imgDirName imgFileName ], '-dpng')
+    print([ imgDirName imgFileNamePressure ], '-dpng')
 end
 
 % --------------------------------------
@@ -312,9 +359,7 @@ title(sensorFileName, 'interpreter', 'non')
 shg
 if quickLookFlag
     % Create the quick look plot
-    ind = strfind(sensorFileName, '.');
-    imgFileName = strrep(sensorFileName, sensorFileName(ind: end), '_temperature.png');
-    print([ imgDirName imgFileName ], '-dpng')
+    print([ imgDirName imgFileNameTemperature ], '-dpng')
 end
 
 % --------------------------------------
@@ -343,7 +388,5 @@ title(sensorFileName, 'interpreter', 'non')
 shg
 if quickLookFlag
     % Create the quick look plot
-    ind = strfind(sensorFileName, '.');
-    imgFileName = strrep(sensorFileName, sensorFileName(ind: end), '_relativeHumidty.png');
-    print([ imgDirName imgFileName ], '-dpng')
+    print([ imgDirName imgFileNameHumidity ], '-dpng')
 end
