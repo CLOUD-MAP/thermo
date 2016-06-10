@@ -37,6 +37,12 @@ begTime = datenum(str(17:35), 'yyyy-mm-dd HH:MM:SS');
 for j = 1: 6
     str = fgetl(fileID);
 end
+% This accounts for a change in the file format
+if begTime < datenum(2016, 5, 15)
+    dataStrID = 'DAT';
+else
+    dataStrID = 'MET';
+end
 
 % =====================================================================
 % Read the data
@@ -44,7 +50,7 @@ end
 iCount = 1;
 while ~feof(fileID)
     str = fgetl(fileID);
-    ind = strfind(str, 'DAT');
+    ind = strfind(str, dataStrID);
     if ~isempty(ind)
         str = strrep(str, ']', ','); % needed to help extract data
         % Time
@@ -177,7 +183,6 @@ end
 % Close the file
 % =====================================================================
 fclose(fileID);
-
 % =====================================================================
 % Create the structured array
 % =====================================================================
