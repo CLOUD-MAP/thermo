@@ -8,24 +8,24 @@ clc
 
 %Enter date of flight
 procYear = 2016;
-procMonth = 4;
+procMonth = 6;
 procDay = 22;
 
 
-procStation = 'wash'; %four letter name of mesonet site being used
+procStation = 'nwc'; %four letter name of mesonet site being used
 fetchFlag = 1;
 %% User inputs
 
 % *** You will need to change the baseDir for your computer
 % This is where your 'thermo' folder lives
-baseDir = '/users/chilson/Matlab/CLOUDMAP/';
+baseDir = '/users/ErinBurns/Desktop/CLOUDMAP/GITHUB/';
 
 %% Read in the data
 % Here, the subroutine 'getDataDir' needs to be in your current folder
 % 'gps2jd' and 'jd2cal' are also needed for later time conversions
 
 dataRead = true;
-sensorType = 'iris+';
+sensorType = 'Solo';
 if dataRead
     % Create the directory of the matlab library and add it to the path
     libDir = [ baseDir 'thermo' filesep 'matlab' filesep ];
