@@ -1,4 +1,0 @@
-Location
-Sensors
-Time offsets
-General notes
