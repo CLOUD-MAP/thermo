@@ -1,0 +1,24 @@
+GAUS-LOG,UTC Date & Time,Session Time,Channel,Event or Error Message,Calling Context
+GAUS-LOG,2016-06-06 17:59:50.665Z,0.000,,*** GAUS SYSTEM LOG FILE ***
+GAUS-LOG,2016-06-06 17:59:50.740Z,0.075,,Serial port initialization complete: no errors.
+GAUS-LOG,2016-06-06 17:59:51.434Z,0.769,,Surface Obs Data Acq data log file created
+GAUS-LOG,2016-06-06 17:59:51.446Z,0.781,,Sounding Supervisor program started
+GAUS-LOG,2016-06-06 17:59:51.476Z,0.811,,GPS Reference Data Acq (NMEA) program started
+GAUS-LOG,2016-06-06 18:32:42.429Z,1971.764,0,Sounding START request
+GAUS-LOG,2016-06-06 18:32:36.144Z,1965.479,,PC Clock set to: 2016-06-06 18:32:36.143 using GPS Reference Receiver data - PC Clock error was: 7.307 sec
+GAUS-LOG,2016-06-06 18:32:36.507Z,1965.842,0,Sounding files created
+GAUS-LOG,2016-06-06 19:04:33.604Z,3882.939,0,Sounding STOP request
+GAUS-LOG,2016-06-06 19:05:03.119Z,3912.454,0,Sounding files closed
+GAUS-LOG,2016-06-06 19:05:03.123Z,3912.458,0,Sounding files renamed
+GAUS-LOG,2016-06-06 19:05:03.744Z,3913.079,0,Sounding ENDED
+GAUS-LOG,2016-06-06 19:05:05.892Z,3915.227,0,Sounding START request
+GAUS-LOG,2016-06-06 19:05:07.144Z,3916.480,,PC Clock set to: 2016-06-06 19:05:07.143 using GPS Reference Receiver data - PC Clock error was: -0.070 sec
+GAUS-LOG,2016-06-06 19:05:07.200Z,3916.535,0,Sounding files created
+GAUS-LOG,2016-06-06 19:05:32.087Z,3941.422,,Serial Read TIMEOUT from 400 MHz RECEIVER card after command RSD on COM 6
+GAUS-LOG,2016-06-06 21:03:35.974Z,11025.309,0,Sounding STOP request
+GAUS-LOG,2016-06-06 21:03:51.394Z,11040.729,0,Sounding files closed
+GAUS-LOG,2016-06-06 21:03:51.398Z,11040.733,0,Sounding files renamed
+GAUS-LOG,2016-06-06 21:03:54.995Z,11044.330,0,Sounding ENDED
+GAUS-LOG,2016-06-06 21:04:06.815Z,11056.150,,Sounding Supervisor program ended by operator
+GAUS-LOG,2016-06-06 21:04:06.874Z,11056.209,,GPS Reference Data Acq (NMEA) program ended
+GAUS-LOG,2016-06-06 21:04:08.474Z,11057.809,,Soundings Loader program ended

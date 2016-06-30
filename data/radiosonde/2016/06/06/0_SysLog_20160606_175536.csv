@@ -1,0 +1,13 @@
+GAUS-LOG,UTC Date & Time,Session Time,Channel,Event or Error Message,Calling Context
+GAUS-LOG,2016-06-06 17:55:36.864Z,0.000,,*** GAUS SYSTEM LOG FILE ***
+GAUS-LOG,2016-06-06 17:55:37.000Z,0.136,,Serial port initialization complete: no errors.
+GAUS-LOG,2016-06-06 17:55:41.058Z,4.193,,BYTE COUNT MISMATCH from 400 MHz RECEIVER card after command @RN on COM 6 -- Expected Length: 3 Actual Length: 0 Received String: 
+GAUS-LOG,2016-06-06 17:55:41.061Z,4.196,,Serial Read TIMEOUT from 400 MHz RECEIVER card after command @RN on COM 6
+GAUS-LOG,2016-06-06 17:55:43.073Z,6.208,,BYTE COUNT MISMATCH from 400 MHz RECEIVER card after command @RN on COM 6 -- Expected Length: 3 Actual Length: 0 Received String: 
+GAUS-LOG,2016-06-06 17:55:43.076Z,6.211,,Serial Read TIMEOUT from 400 MHz RECEIVER card after command @RN on COM 6
+GAUS-LOG,2016-06-06 17:55:45.093Z,8.228,,BYTE COUNT MISMATCH from 400 MHz RECEIVER card after command @RN on COM 6 -- Expected Length: 3 Actual Length: 0 Received String: 
+GAUS-LOG,2016-06-06 17:55:45.097Z,8.232,,Serial Read TIMEOUT from 400 MHz RECEIVER card after command @RN on COM 6
+GAUS-LOG,2016-06-06 17:58:18.343Z,161.478,,An ERROR ocurred in the GAUS Soundings Loader!
+
+Last program state:  Init Chassis Hardware
+GAUS-LOG,2016-06-06 17:59:34.784Z,237.920,,Soundings Loader program ended
