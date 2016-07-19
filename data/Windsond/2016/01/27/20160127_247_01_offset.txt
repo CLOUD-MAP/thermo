@@ -1,0 +1,6 @@
+*** Calculated Offset Values ***
+* Time interval for offset calculation
+Start Time: 27-Jan-2016 17:10:54
+Stop Time : 27-Jan-2016 18:04:30
+* Amount to be added to sensor
+Pressure (Pa): 207.964032

@@ -1,0 +1,7 @@
+*** Calculated Offset Values ***
+* Time interval for offset calculation
+Start Time: 25-Jan-2016 17:19:37
+Stop Time : 25-Jan-2016 17:57:43
+* Amount to be added to sensor
+Temperature (C): -0.068602
+Humidity (percent): 3.963591
