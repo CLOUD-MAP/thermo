@@ -73,7 +73,7 @@ libDir = [ baseDir 'thermo' filesep 'matlab' filesep ];
 addpath(libDir)
 
 % Find the appropriate data directory based on instrument type
-dataDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+dataDirName = getDataDir(procYear, procMonth, procDay, sensorType);
 
 if quickLookFlag
     % Find the appropriate image directory based on instrument type
@@ -136,7 +136,7 @@ end
 % end
 % Following code only works if 1min data avaialble and no error trapping
 sensorType = 'Mesonet';
-mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+mesoDirName = getDataDir(procYear, procMonth, procDay, sensorType);
 mesoFileName = sprintf('%4.4d%2.2d%2.2d.WASH.1min.csv', procYear, procMonth, procDay);
 [mts, ~] = readCSVMesonetData(procYear, procMonth, procDay, mesoFileName, mesoDirName);
 

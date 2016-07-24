@@ -73,13 +73,11 @@ libDir = [ baseDir 'thermo' filesep 'matlab' filesep ];
 addpath(libDir)
 
 % Find the appropriate data directory based on instrument type
-dataDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+dataDirName = getDataDir(procYear, procMonth, procDay, sensorType);
 
 if quickLookFlag
     % Find the appropriate image directory based on instrument type
-    imgDirName = sprintf('%sthermo%squickLooks%s%s%s%4.4d%s%2.2d%s%2.2d%s', ...
-        baseDir, filesep, filesep, sensorType, filesep, ...
-        procYear, filesep, procMonth, filesep, procDay, filesep);
+    imgDirName = getQuickLookDir(procYear, procMonth, procDay, sensorType);
     % If directory does not exist, create it
     if ~exist(imgDirName, 'dir')
         mkdir(imgDirName)
@@ -152,7 +150,7 @@ if status
         NWCFlag = false;
     end
     % Find the appropriate directory based on instrument type
-    mesoDirName = getDataDir(baseDir, procYear, procMonth, procDay, 'Mesonet');
+    mesoDirName = getDataDir(procYear, procMonth, procDay, 'Mesonet');
     [mts, status] = readMTSData(mesoFileName, mesoDirName, NWCFlag);
 end
 

@@ -27,7 +27,7 @@ sensorType = 'Mesonet';
 % =====================================================================
 % Create the directory using the file separators appropriate for your OS
 % =====================================================================
-dataDir = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+dataDir = getDataDir(procYear, procMonth, procDay, sensorType);
 
 % =====================================================================
 % Check if the mts file exists

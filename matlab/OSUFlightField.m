@@ -29,7 +29,7 @@ addpath(libDir)
 % Read the copter data
 sensorType = 'iris+';
 % Find the appropriate directory based on instrument type
-dataDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+dataDirName = getDataDir(procYear, procMonth, procDay, sensorType);
 inFileName = sprintf('%4.4d%2.2d%2.2d.mat', procYear, procMonth, procDay);
 fprintf('Reading file: %s%s\n', dataDirName, inFileName)
 load([ dataDirName inFileName ]);
@@ -38,7 +38,7 @@ load([ dataDirName inFileName ]);
 iFlight = input('Enter the flight number to process: ');
 sensorType = 'Windsond';
 % Find the appropriate directory based on instrument type
-dataDirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+dataDirName = getDataDir(procYear, procMonth, procDay, sensorType);
 % Get the log file
 logFileName = sprintf('%4.4d%2.2d%2.2d_log.txt', procYear, procMonth, procDay);
 fp = fopen([ dataDirName logFileName ]);

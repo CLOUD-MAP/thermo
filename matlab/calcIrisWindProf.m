@@ -31,7 +31,7 @@ if dataRead
     addpath(libDir)
     
     % Find the appropriate directory based on instrument type
-    dirName = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
+    dirName = getDataDir(procYear, procMonth, procDay, sensorType);
     
     
     % Interactively choose the file namecl
