@@ -1,11 +1,10 @@
-function status = getMesoFileCURL(procYear, procMonth, procDay, ...
+function status = getMesoFile(procYear, procMonth, procDay, ...
     procStation, outDir)
 % =====================================================================
-% getMesoFileCurl
-% status = getMesoCURL(year, month, day, station, directory)
+% getMesoFile
+% status = getMeso(year, month, day, station, directory)
 % =====================================================================
 % Used to automatically retrieve mesonet data from the internet
-% Only runs on a Mac
 % Inputs
 % procYear    = year to process
 % procMonth   = month to process
@@ -52,9 +51,7 @@ end
 % =====================================================================
 if strcmp(procStation, 'nwcm')
     baseURL = 'http://www.mesonet.org/data/public/nwc/mts-1m/';
-    URL = sprintf('%s%4.4d/%2.2d/%2.2d/%s', ...
-        baseURL, procYear, procMonth, procDay, fileName);
-    urlwrite(URL, [outDir fileName]);
+    URL = sprintf('%s%4.4d/%2.2d/%2.2d/%s', baseURL, procYear, procMonth, procDay, fileName);
 else
     % =====================================================================
     % Use cURL to fetch the data.  This command can be run from the system
@@ -65,17 +62,9 @@ else
     dateLocationString = sprintf('%4.4d%2.2d%2.2d%s/mts/DOWNLOAD/', ...
         procYear, procMonth, procDay, procStation);
     URL = ['"' baseURL dateLocationString '"'];
-    
-    % =====================================================================
-    % Create the command string to pass to CURL
-    % =====================================================================
-    cmdstr = ['curl -o ' outDir fileName ' ' URL];
-    
-    % =====================================================================
-    % Actually call CURL
-    % =====================================================================
-    system(['DYLD_LIBRARY_PATH="";' cmdstr]);
 end
+
+websave([outDir fileName], URL);
 
 fprintf('Created %s in %s\n', fileName, outDir)
 status = 1;

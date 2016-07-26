@@ -59,9 +59,6 @@ switch sensorType
 end
 
 procStation = 'nwcm';
-% set fetchFlag to 1 if mesonet data retrieved automatically (mac)
-% set fetchFlag to 0 if you will download the file by hand (PC)
-fetchFlag = 1;
 
 % *** You will need to change the baseDir for your computer
 % This is where your 'thermo' folder lives
@@ -140,8 +137,7 @@ switch sensorType
 end
 
 % Check if the mts file available, if not, try to retrieve it
-[mesoFileName, status] = getMtsFile(procYear, procMonth, procDay, ...
-    procStation, fetchFlag, baseDir);
+[mesoFileName, status] = getMtsFile(procYear, procMonth, procDay, procStation);
 
 if status
     if strcmp(procStation, 'nwcm');
