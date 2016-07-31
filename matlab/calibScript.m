@@ -51,7 +51,7 @@ end
 
 % check spelling of the sensor name
 switch sensorType
-    case {'Windsond', 'iMet'}
+    case {'Windsond', 'iMet', 'iMetSolo'}
         % we're good here
     otherwise
         fprintf('*** Unknown sensor type specified. Should be Windsond or iMet ... exiting!\n')
@@ -134,6 +134,31 @@ switch sensorType
             imgFileNameHumidity = sprintf('%4.4d%2.2d%2.2d_%s_%s_humidity.png', ...
                 procYear, procMonth, procDay, sensorUnit, sensorNumber);
         end
+    case 'iMetSolo'
+        % Interactively choose the file name
+        % First see if files exist
+        d = dir([ dataDirName '*.csv' ]);
+        if isempty(d)
+            fprintf('*** File not available ... exiting!\n')
+            return
+        end
+        [sensorFileName, dataDirName] = uigetfile([ dataDirName '*.csv' ], 'Pick a data file or click Cancel to exit');
+        if isequal(sensorFileName, 0) || isequal(dataDirName, 0)
+            fprintf('*** Operation cancelled ... exiting!\n')
+            return
+        end
+        [iMetSolo, status] = readIMetSolo(dataDirName, sensorFileName);
+        sensor = iMetSolo;
+        sensorUnit = sensorFileName(10:11);
+        sensorNumber = sensorFileName(13:14);
+        if quickLookFlag
+            imgFileNamePressure = sprintf('%4.4d%2.2d%2.2d_%s_%s_pressure.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            imgFileNameTemperature = sprintf('%4.4d%2.2d%2.2d_%s_%s_temperature.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            imgFileNameHumidity = sprintf('%4.4d%2.2d%2.2d_%s_%s_humidity.png', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+        end        
 end
 
 % Check if the mts file available, if not, try to retrieve it
@@ -173,6 +198,9 @@ nVals = length(indMeso);
 sensorObsTimeAvg = nan(1, nVals);
 sensorPressureAvg_Pa = nan(1, nVals);
 sensorTemperatureAvg_C = nan(1, nVals);
+sensorTemperatureAvgB_C = nan(1, nVals);
+sensorTemperatureAvgC_C = nan(1, nVals);
+sensorTemperatureAvgD_C = nan(1, nVals);
 sensorHumidityAvg_perCent = nan(1, nVals);
 for iVal = 1: nVals
     sensorObsTimeAvg(iVal) = mts.obsTime(indMeso(iVal));
@@ -183,6 +211,11 @@ for iVal = 1: nVals
     else
         sensorPressureAvg_Pa(iVal) = nanmean(sensor.pressure_Pa(ind));
         sensorTemperatureAvg_C(iVal) = nanmean(sensor.temperature_C(ind));
+        if isfield(sensor, 'temperatureB_C')
+            sensorTemperatureAvgB_C(iVal) = nanmean(sensor.temperatureB_C(ind));
+            sensorTemperatureAvgC_C(iVal) = nanmean(sensor.temperatureC_C(ind));
+            sensorTemperatureAvgD_C(iVal) = nanmean(sensor.temperatureD_C(ind));         
+        end     
         sensorHumidityAvg_perCent(iVal) = nanmean(sensor.humidity_perCent(ind));
     end
 end
@@ -205,9 +238,17 @@ xlabel('Time UTC')
 % ------------------------------------------
 subplot(3, 1, 2)
 % ------------------------------------------
-plot(sensor.obsTime(indSensor), sensor.temperature_C(indSensor), 'r')
+plot(sensor.obsTime(indSensor), sensor.temperature_C(indSensor), 'm');
 hold on
-plot(sensorObsTimeAvg, sensorTemperatureAvg_C, '*-b', 'linewidth', 2)
+plot(sensorObsTimeAvg, sensorTemperatureAvg_C, '*-m', 'linewidth', 2);
+if isfield(sensor, 'temperatureB_C')
+    plot(sensor.obsTime(indSensor), sensor.temperatureB_C(indSensor), 'b');
+    plot(sensor.obsTime(indSensor), sensor.temperatureC_C(indSensor), 'r');
+    plot(sensor.obsTime(indSensor), sensor.temperatureD_C(indSensor), 'g');
+    plot(sensorObsTimeAvg, sensorTemperatureAvgB_C, '*-b', 'linewidth', 2);
+    plot(sensorObsTimeAvg, sensorTemperatureAvgC_C, '*-r', 'linewidth', 2);
+    plot(sensorObsTimeAvg, sensorTemperatureAvgD_C, '*-g', 'linewidth', 2);
+end
 plot(mts.obsTime(indMeso), mts.temperature1p5m_C(indMeso), '*-k', 'linewidth', 2)
 hold off
 set(gca, 'xlim', [timeBeg timeEnd])
@@ -267,6 +308,27 @@ if offsetFlag
             fprintf(fp, 'Temperature (C): %f\n', offsetTemperature_C);
             fprintf(fp, 'Humidity (percent): %f\n', offsetHumidity_perCent);
             fclose(fp);
+        case 'iMetSolo'
+            offsetTemperatureB_C = -nanmean(sensorTemperatureAvgB_C(ind1) - mts.temperature1p5m_C(ind2));
+            offsetTemperatureC_C = -nanmean(sensorTemperatureAvgC_C(ind1) - mts.temperature1p5m_C(ind2));
+            offsetTemperatureD_C = -nanmean(sensorTemperatureAvgD_C(ind1) - mts.temperature1p5m_C(ind2));
+            fprintf('Temperature B (C): %f\n', offsetTemperatureB_C);
+            fprintf('Temperature C (C): %f\n', offsetTemperatureC_C);
+            fprintf('Temperature D (C): %f\n', offsetTemperatureD_C);
+            offsetFileNameUnit = sprintf('%4.4d%2.2d%2.2d_%s_%s_offset.txt', ...
+                procYear, procMonth, procDay, sensorUnit, sensorNumber);
+            fp = fopen([ dataDirName offsetFileNameUnit ], 'wt');
+            fprintf(fp, '*** Calculated Offset Values ***\n');
+            fprintf(fp, '* Time interval for offset calculation\n');
+            fprintf(fp, 'Start Time: %s\n', datestr(timeLim(1)));
+            fprintf(fp, 'Stop Time : %s\n', datestr(timeLim(2)));
+            fprintf(fp, '* Amount to be added to sensor\n');
+            fprintf(fp, 'Pressure (Pa): %f\n', offsetPressure_Pa);
+            fprintf(fp, 'Temperature A (C): %f\n', offsetTemperature_C);
+            fprintf(fp, 'Temperature B (C): %f\n', offsetTemperatureB_C);
+            fprintf(fp, 'Temperature C (C): %f\n', offsetTemperatureC_C);
+            fprintf(fp, 'Temperature D (C): %f\n', offsetTemperatureD_C);
+            fprintf(fp, 'Humidity (percent): %f\n', offsetHumidity_perCent);            
         case 'Windsond'
             % file for pressure
             offsetFileNameBase = sprintf('%4.4d%2.2d%2.2d_%s_%s_offset.txt', ...
@@ -327,37 +389,53 @@ if quickLookFlag
     print([ imgDirName imgFileNamePressure ], '-dpng')
 end
 
-% --------------------------------------
-figure(2)
-% --------------------------------------
-clf
-plot(sensor.obsTime(indSensor), sensor.temperature_C(indSensor), 'r', ...
-    'linewidth', lineWidth)
-hold on
-plot(sensorObsTimeAvg, sensorTemperatureAvg_C, '*-b', 'linewidth', 2, ...
-    'linewidth', lineWidth)
-plot(mts.obsTime(indMeso), mts.temperature1p5m_C(indMeso), '*-k', 'linewidth', 2, ...
-    'linewidth', lineWidth)
-plot(sensorObsTimeAvg, sensorTemperatureAvg_C + offsetTemperature_C, '*-g', 'linewidth', 2, ...
-    'linewidth', lineWidth)
-plot(timeLim(1)*[1 1], get(gca, 'ylim'), '-k', 'linewidth', lineWidth)
-plot(timeLim(2)*[1 1], get(gca, 'ylim'), '-k', 'linewidth', lineWidth)
-hold off
-set(gca, 'fontsize', fontSize)
-set(gca, 'linewidth', axisWidth)
-set(gca, 'xlim', [timeBeg timeEnd])
-datetick('x', 13, 'keeplimits')
-xlabel('Time UTC')
-ylabel('Temperature (C)')
-title(sensorFileName, 'interpreter', 'non')
-shg
-if quickLookFlag
-    % Create the quick look plot
-    print([ imgDirName imgFileNameTemperature ], '-dpng')
+
+tempArray = {sensor.temperature_C(indSensor), sensorTemperatureAvg_C, offsetTemperature_C, 'Temperature (C)'};
+if isfield(sensor, 'temperatureB_C')
+    tempArray = {
+        sensor.temperature_C(indSensor), sensorTemperatureAvg_C, offsetTemperature_C, 'Temperature A (C)';
+        sensor.temperatureB_C(indSensor), sensorTemperatureAvgB_C, offsetTemperatureB_C, 'Temperature B (C)';
+        sensor.temperatureC_C(indSensor), sensorTemperatureAvgC_C, offsetTemperatureC_C, 'Temperature C (C)';
+        sensor.temperatureD_C(indSensor), sensorTemperatureAvgD_C, offsetTemperatureD_C, 'Temperature D (C)';
+    };
 end
 
+
+for idx = 1:size(tempArray,1)
+    % --------------------------------------
+    figure(idx + 1)
+    % --------------------------------------
+    clf
+    plot(sensor.obsTime(indSensor), tempArray{idx,1}, 'r', ...
+        'linewidth', lineWidth)
+    hold on
+    plot(sensorObsTimeAvg, tempArray{idx,2}, '*-b', 'linewidth', 2, ...
+        'linewidth', lineWidth)
+    plot(mts.obsTime(indMeso), mts.temperature1p5m_C(indMeso), '*-k', 'linewidth', 2, ...
+        'linewidth', lineWidth)
+    plot(sensorObsTimeAvg, tempArray{idx,2} + tempArray{idx,3}, '*-g', 'linewidth', 2, ...
+        'linewidth', lineWidth)
+    plot(timeLim(1)*[1 1], get(gca, 'ylim'), '-k', 'linewidth', lineWidth)
+    plot(timeLim(2)*[1 1], get(gca, 'ylim'), '-k', 'linewidth', lineWidth)
+    hold off
+    set(gca, 'fontsize', fontSize)
+    set(gca, 'linewidth', axisWidth)
+    set(gca, 'xlim', [timeBeg timeEnd])
+    datetick('x', 13, 'keeplimits')
+    xlabel('Time UTC')
+    ylabel(tempArray{idx,4})
+    title(sensorFileName, 'interpreter', 'non')
+    shg
+    if quickLookFlag
+        % Create the quick look plot
+        print([ imgDirName imgFileNameTemperature ], '-dpng')
+    end
+    
+end
+
+
 % --------------------------------------
-figure(3)
+figure(6)
 % --------------------------------------
 clf
 plot(sensor.obsTime(indSensor), sensor.humidity_perCent(indSensor), 'r', ...

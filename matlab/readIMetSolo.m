@@ -1,36 +1,12 @@
-%clear all
-clc
+function [iMetSolo, status] = readIMetSolo(dirName, fileName)
 
-%Enter date of flight
-procYear = 2016;
-procMonth = 6;
-procDay = 30;
-
-%% User inputs
-
-% *** You will need to change the baseDir for your computer
-% This is where your 'thermo' folder lives
-baseDir = '/users/chilson/Matlab/CLOUDMAP/';
-
-%% Read in the data
-% Create the directory of the matlab library and add it to the path
-libDir = [ baseDir 'thermo' filesep 'matlab' filesep ];
-addpath(libDir)
-
-sensorType = 'iMetSolo';
-% Find the appropriate directory based on instrument type
-dirName = getDataDir(procYear, procMonth, procDay, sensorType);
-
-% Interactively choose the file namecl
-% First see if files exist
-d = dir([ dirName '*.csv' ]);
-if isempty(d)
-    fprintf('*** File not available ... exiting!\n')
-    return
-end
-[fileName, dirName] = uigetfile([ dirName '*.csv' ], 'Pick a data file or click Cancel to exit');
-if isequal(fileName, 0) || isequal(dirName, 0)
-    fprintf('*** Operation cancelled ... exiting!\n')
+% =====================================================================
+% Check if the file exists
+% =====================================================================
+if ~exist([dirName fileName], 'file')
+    fprintf('*** readiMet: file not found ... exiting!\n')
+    iMetSolo = [];
+    status = 0;
     return
 end
 
@@ -81,8 +57,8 @@ iMetSolo.longitude_deg = longitude_deg(1: nVals);
 iMetSolo.altitude_m = altitude_m(1: nVals);
 iMetSolo.nSatellites = nSatellites(1: nVals);
 iMetSolo.pressure_Pa = pressure_Pa(1: nVals);
-iMetSolo.relativeHumidity_perCent= relativeHumidity_perCent(1: nVals);
-iMetSolo.temperatureA_C = temperatureA_C(1: nVals);
+iMetSolo.humidity_perCent= relativeHumidity_perCent(1: nVals);
+iMetSolo.temperature_C = temperatureA_C(1: nVals);
 iMetSolo.temperatureB_C = temperatureB_C(1: nVals);
 iMetSolo.temperatureC_C = temperatureC_C(1: nVals);
 iMetSolo.temperatureD_C = temperatureD_C(1: nVals);
@@ -90,16 +66,15 @@ iMetSolo.temperatureD_C = temperatureD_C(1: nVals);
 % Close the file
 fclose(fp);
 
-% Remove the matlab library
-rmpath(libDir)
+status = 1;
 
-figure(2)
-clf
-plot(iMetSolo.obsTime, iMetSolo.temperatureA_C,'-k')
-hold on
-plot(iMetSolo.obsTime, iMetSolo.temperatureB_C,'-b')
-plot(iMetSolo.obsTime, iMetSolo.temperatureC_C,'-r')
-plot(iMetSolo.obsTime, iMetSolo.temperatureD_C,'-g')
-hold off
-datetick('x', 15)
-shg
+% figure(2)
+% clf
+% plot(iMetSolo.obsTime, iMetSolo.temperatureA_C,'-k')
+% hold on
+% plot(iMetSolo.obsTime, iMetSolo.temperatureB_C,'-b')
+% plot(iMetSolo.obsTime, iMetSolo.temperatureC_C,'-r')
+% plot(iMetSolo.obsTime, iMetSolo.temperatureD_C,'-g')
+% hold off
+% datetick('x', 15)
+% shg
