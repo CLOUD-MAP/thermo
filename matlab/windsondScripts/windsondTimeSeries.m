@@ -7,8 +7,8 @@ clc
 
 % Enter date of flight
 procYear = 2016;
-procMonth = 6;
-procDay = 29;
+procMonth = 9;
+procDay = 9;
 
 % Flag to decide if image file should be created
 imgFlag = false;
@@ -110,6 +110,8 @@ indWindsond1 = find(timeTakeoff <= windsondArr(1).obsTime & windsondArr(1).obsTi
 indWindsond2 = find(timeTakeoff <= windsondArr(2).obsTime & windsondArr(2).obsTime <= timeLand);
 indWindsond3 = find(timeTakeoff <= windsondArr(3).obsTime & windsondArr(3).obsTime <= timeLand);
 indWindsond4 = find(timeTakeoff <= windsondArr(4).obsTime & windsondArr(4).obsTime <= timeLand);
+indIrisCURR = find(timeTakeoff <= iris.obsTimeCURR & iris.obsTimeCURR <= timeLand);
+indIrisGPS = find(timeTakeoff <= iris.obsTimeGPS & iris.obsTimeGPS <= timeLand);
 
 procTime1 = windsondArr(1).obsTime(indWindsond1);
 height1_m = interp1(iris.obsTimeGPS(indGPS), iris.altitudeGPS_m(indGPS), procTime1);
@@ -132,7 +134,50 @@ fontSize = 15;
 plotLineWidth = 1.5;
 dateTickType = 15;
 
+figure(1)
+clf
+plot(iris.obsTimeGPS(indIrisGPS), iris.altitudeGPS_m(indIrisGPS))
+grid
+datetick('x', dateTickType)
+set(gca, 'fontsize', fontSize)
+set(gca, 'linewidth', plotLineWidth)
+xlabel('Time UTC')
+ylabel('Iris Altitude GPS (m)')
+title(sprintf('%s - %s', datestr(timeTakeoff, dateTickType), datestr(timeLand, dateTickType)))
+shg
+
+if imgFlag
+    imgFileName = sprintf('%4.4d%2.2d%2.2d_%2.2d_height.png', ...
+        procYear, procMonth, procDay, iFlight);
+    imgDirName = './imgs/';
+    fprintf('Creating file: %s\n', imgFileName)
+    print([ imgDirName imgFileName ], '-dpng')
+end
+
 figure(2)
+clf
+plot(iris.obsTimeCURR(indIrisCURR), iris.throttleCURR(indIrisCURR))
+grid
+datetick('x', dateTickType)
+set(gca, 'fontsize', fontSize)
+set(gca, 'linewidth', plotLineWidth)
+xlabel('Time UTC')
+ylabel('Iris Throttle')
+title(sprintf('%s - %s', datestr(timeTakeoff, dateTickType), datestr(timeLand, dateTickType)))
+shg
+
+%timeTakeoff = x(1);
+%timeLand = x(2);
+
+if imgFlag
+    imgFileName = sprintf('%4.4d%2.2d%2.2d_%2.2d_throttle.png', ...
+        procYear, procMonth, procDay, iFlight);
+    imgDirName = './imgs/';
+    fprintf('Creating file: %s\n', imgFileName)
+    print([ imgDirName imgFileName ], '-dpng')
+end
+
+figure(3)
 clf
 plot(windsondArr(1).obsTime(indWindsond1),  windsondArr(1).temperature_C(indWindsond1), ...
     'linewidth', lineWidth)
@@ -162,7 +207,7 @@ if imgFlag
     print([ imgDirName imgFileName ], '-dpng')
 end
 
-figure(3)
+figure(4)
 clf
 plot(windsondArr(1).obsTime(indWindsond1),  windsondArr(1).humidity_perCent(indWindsond1), ...
     'linewidth', lineWidth)
@@ -182,31 +227,6 @@ timeRange = get(gca, 'xlim');
 humidityRange_perCent = get(gca, 'ylim');
 xlabel('Time UTC')
 ylabel('Relative Humidity (percent)')
-title(sprintf('%s - %s', datestr(timeTakeoff, dateTickType), datestr(timeLand, dateTickType)))
-shg
-
-if imgFlag
-    imgFileName = sprintf('%4.4d%2.2d%2.2d_%2.2d_humidity.png', ...
-        procYear, procMonth, procDay, iFlight);
-    imgDirName = './imgs/';
-    fprintf('Creating file: %s\n', imgFileName)
-    print([ imgDirName imgFileName ], '-dpng')
-end
-
-figure(4)
-clf
-plot(procTime1, height1_m, 'linewidth', lineWidth)
-hold on
-plot(procTime2, height2_m, 'linewidth', lineWidth)
-plot(procTime3, height3_m, 'linewidth', lineWidth)
-plot(procTime4, height4_m, 'linewidth', lineWidth)
-hold off
-grid
-datetick('x', dateTickType)
-set(gca, 'fontsize', fontSize)
-set(gca, 'linewidth', plotLineWidth)
-xlabel('Time UTC')
-ylabel('Height (m)')
 title(sprintf('%s - %s', datestr(timeTakeoff, dateTickType), datestr(timeLand, dateTickType)))
 shg
 

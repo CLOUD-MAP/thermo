@@ -8,8 +8,8 @@ clc
 
 %Enter date of flight
 procYear = 2016;
-procMonth = 8;
-procDay = 17;
+procMonth = 9;
+procDay = 9;
 
 %% User inputs
 
@@ -44,6 +44,7 @@ nFiles = length(d);
 indOffsetGPS = 0;
 indOffsetATT = 0;
 indOffsetBARO = 0;
+indOffsetCURR = 0;
 
 for iFile = 1: nFiles
     fileName = d(iFile).name;
@@ -92,7 +93,16 @@ for iFile = 1: nFiles
     iris.altitudeBARO_m(indBARO) = BARO(:, 3);
     iris.pressureBARO_Pa(indBARO) = BARO(:, 4);
     iris.tempeatureBARO_C(indBARO) = BARO(:, 5);
-    indOffsetBARO = indOffsetBARO+ nBARO;
+    indOffsetBARO = indOffsetBARO + nBARO;
+    
+    % Extract the current data
+    nCURR = length(CURR);
+    indCURR = indOffsetCURR + (1: nCURR);
+    iris.obsTimeCURR(indCURR) = timeOffset + CURR(:, 2)/1e6/24/60/60;
+    iris.throttleCURR(indCURR) = CURR(:, 3)/1e3;
+    iris.voltageCURR_V(indCURR) = CURR(:, 4)/1e2;
+    iris.currentCURR_A(indCURR) = CURR(:, 5)/1e2;
+    indOffsetCURR = indOffsetCURR + nCURR;
 end
 % Remove the matlab library
 rmpath(libDir)
