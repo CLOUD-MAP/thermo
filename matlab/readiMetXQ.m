@@ -30,8 +30,8 @@ delimiter = ',';
 formatSpec = '%s%f%f%f%s%s%f%f%f%f%[^\n\r]';
 
 % =====================================================================
-% =====================================================================
 % Open and read the data
+% =====================================================================
 fileID = fopen([ dirName fileName ], 'r');
 fprintf('Reading file: %s\n', [ dirName fileName ])
 dataArray = textscan(fileID, formatSpec, 'Delimiter', delimiter, 'EmptyValue' ,NaN, 'ReturnOnError', false);
