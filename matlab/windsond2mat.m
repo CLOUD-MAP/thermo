@@ -29,13 +29,13 @@ sensorType = 'Windsond';
 dataDir = getDataDir(baseDir, procYear, procMonth, procDay, sensorType);
 
 % =====================================================================
-% Find all iMet files in the directory
+% Find all Windsond files in the directory
 % =====================================================================
 d = dir([ dataDir '*.sounding']);
 nFiles = length(d);
 
 % =====================================================================
-% Step through all the iMet files in the directory, read them, and create
+% Step through all the Windsond files in the directory, read them, and create
 % a corresponding mat file
 % =====================================================================
 for iFile = 1: nFiles
