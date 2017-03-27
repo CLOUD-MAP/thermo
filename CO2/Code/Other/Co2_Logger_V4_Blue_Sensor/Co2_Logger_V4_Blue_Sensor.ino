@@ -1,5 +1,5 @@
 
-//OU Co2 Logger V4 Grey Sensor
+//OU Co2 Logger V4 Blue Sensor
 
 #include <Wire.h>
 #include <SPI.h>
@@ -64,7 +64,7 @@ delay(10000) ;
 void loop() {
   // put your main code here, to run repeatedly:
   current_time = millis() ;
-  if (current_time - previous_time >= 500)
+  if (current_time - previous_time >= 1000)
   {
     Co2File = SD.open(filename, FILE_WRITE);
     DateTime Time = rtc.now();
@@ -101,7 +101,7 @@ void Create_File_Header() { // This function writes the file header for the Co2 
   Co2File.print(now.minute(), DEC);
   Co2File.print(':');
   Co2File.println(now.second(), DEC);
-  Co2File.println("Sensor is K30 FR from Co2meter.com, In Grey Box");
+  Co2File.println("Sensor is K30 FR from Co2meter.com, In Blue Box");
   Co2File.println("");
   Co2File.println("Time(Unix)\tCo2(ppm)");
   Co2File.close();
