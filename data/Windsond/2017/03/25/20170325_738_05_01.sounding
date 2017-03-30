@@ -1,0 +1,48 @@
+# Session start 2017-03-25 18:07:21
+# offset=1490465241.013
+# timezone=0
+# version=4
+# install=890A195 30
+# software=A2.53
+# node_id=738
+00m00s000: [#MET:r=119,afc=-13,id=738,md=0,te=17.91,hu=52.95,pa=97438,spd=0.00,ang=2.80,sats=5,hdop=1.25,lat=34589466,lon=-97312575,su=3.80,behlan=0]
+01m05s549: [#MET:r=131,afc=0,id=738,md=0,te=12.89,hu=57.50,pa=97148,spd=5.25,ang=351.00,latd=9591,lond=7457,logst=0,role=2,clk=9,pwr=7,fwver=252]
+02m11s104: [#MET:r=149,afc=0,id=738,md=0,te=12.23,hu=64.05,pa=97096,spd=1.50,ang=184.90,latm=589390,lonm=287668,mcnt=3,cutalt=30000,gpa=97440]
+03m16s555: [#MET:r=126,afc=-13,id=738,md=0,te=12.60,hu=63.40,pa=97082,alt=363,spd=0.05,ang=253.00,latd=9157,lond=7148,galt=345,hw=0,ucnt=0]
+03m16s555: # ENQUEUE: gs=1s0
+03m16s555: # EXE_NOW: gs=1s0
+03m16s743: [#TIM:id=738]
+03m16s743: # TIMEOUT dongle: gs=1s0
+04m23s867: [#MET:syn=1,r=128,afc=0,sid=0,md=1,te=12.40,hu=63.55,pa=97090,spd=0.00,ang=37.30,latd=9615,lond=7178]
+05m29s831: [#MET:syn=1,r=114,afc=-13,sid=0,md=1,te=14.22,hu=63.55,pa=97426,spd=0.25,ang=21.00,latd=9437,lond=7386]
+06m35s836: [#MET:syn=1,r=110,afc=-13,sid=0,md=1,te=17.08,hu=55.70,pa=97440,spd=0.00,ang=159.90,latd=9428,lond=7395]
+07m41s868: [#MET:syn=1,r=115,afc=-13,sid=0,md=1,te=17.01,hu=54.65,pa=97428,spd=0.10,ang=140.10,latd=9442,lond=7396]
+08m47s835: [#MET:syn=1,r=116,afc=0,sid=0,md=1,te=16.62,tei=17.00,hu=55.00,pa=97432,alt=350,spd=0.05,ang=328.30,lat=34589461,lon=-97312604]
+09m53s891: [#MET:syn=1,r=155,afc=-13,sid=0,md=1,te=13.71,hu=61.30,pa=97414,spd=0.15,ang=149.00,latd=9454,lond=7424]
+10m59s846: [#MET:syn=1,r=122,afc=-13,sid=0,md=1,te=12.63,hu=64.00,pa=97102,spd=0.05,ang=121.20,latd=9505,lond=7620]
+12m05s865: [#MET:syn=1,r=139,afc=-13,sid=0,md=1,te=13.31,hu=61.65,pa=97076,spd=1.85,ang=252.80,latd=9126,lond=7460]
+13m11s832: [#MET:syn=1,r=126,afc=0,sid=0,md=1,te=12.52,hu=62.60,pa=97110,spd=0.30,ang=296.30,latd=9343,lond=6971]
+14m17s856: [#MET:syn=1,r=124,afc=0,sid=0,md=1,te=11.76,hu=64.60,pa=97060,alt=375,spd=3.55,ang=151.20,latd=9591,lond=7320]
+15m23s832: [#MET:syn=1,r=117,afc=-13,sid=0,md=1,te=15.25,hu=63.10,pa=97440,spd=0.15,ang=296.10,latd=9417,lond=7380]
+16m29s822: [#MET:syn=1,r=117,afc=-13,sid=0,md=1,te=16.28,hu=59.20,pa=97440,spd=0.00,ang=296.10,latd=9426,lond=7379]
+17m35s848: [#MET:syn=1,r=112,afc=-13,sid=0,md=1,te=16.29,hu=56.05,pa=97436,spd=0.05,ang=296.10,latd=9423,lond=7387]
+18m41s851: [#MET:syn=1,r=114,afc=-13,sid=0,md=1,te=16.47,tei=17.00,hu=57.50,pa=97440,spd=0.00,ang=296.10,latd=9417,lond=7393,su=3.82]
+19m47s825: [#MET:syn=1,r=119,afc=-13,sid=0,md=1,te=16.46,hu=59.55,pa=97442,alt=366,spd=0.05,ang=296.10,latm=589415,lonm=287401]
+20m53s833: [#MET:syn=1,r=118,afc=-13,sid=0,md=1,te=16.35,hu=58.20,pa=97444,spd=0.15,ang=41.00,latd=9423,lond=7399]
+21m59s825: [#MET:syn=1,r=133,afc=0,sid=0,md=1,te=12.97,hu=62.15,pa=97106,spd=0.00,ang=338.40,latd=9633,lond=7297]
+23m05s846: [#MET:syn=1,r=143,afc=0,sid=0,md=1,te=13.21,hu=62.75,pa=97104,spd=0.00,ang=210.20,latd=9237,lond=7604]
+24m11s819: [#MET:syn=1,r=131,afc=-13,sid=0,md=1,te=12.73,hu=62.95,pa=97102,spd=2.90,ang=323.90,latd=9136,lond=7169]
+25m17s826: [#MET:syn=1,r=87,afc=0,sid=0,md=1,te=12.08,hu=64.40,pa=97096,alt=367,spd=4.15,ang=125.10,latd=9595,lond=7217]
+26m23s835: [#MET:syn=1,r=106,afc=-13,sid=0,md=1,te=14.90,hu=61.85,pa=97444,spd=0.00,ang=123.70,latd=9461,lond=7441]
+27m29s845: [#MET:syn=1,r=113,afc=-13,sid=0,md=1,te=16.21,hu=57.90,pa=97446,spd=0.00,ang=123.70,latd=9461,lond=7441]
+28m35s832: [#MET:syn=1,r=87,afc=-13,sid=0,md=1,te=15.32,tei=15.50,hu=57.50,pa=97452,spd=0.00,ang=123.70,latd=9461,lond=7441]
+29m41s828: [#MET:syn=1,r=104,afc=-13,sid=0,md=1,te=15.74,hu=58.60,pa=97436,spd=0.05,ang=123.70,latd=9462,lond=7441]
+30m47s822: [#MET:syn=1,r=102,afc=-13,sid=0,md=1,te=15.79,hu=57.30,pa=97434,alt=366,spd=0.00,ang=123.70,lat=34589460,lon=-97312559]
+31m53s841: [#MET:syn=1,r=131,afc=-13,sid=0,md=1,te=12.77,hu=62.10,pa=97322,spd=0.00,ang=227.00,latd=9363,lond=7245]
+32m59s821: [#MET:syn=1,r=113,afc=-13,sid=0,md=1,te=12.89,hu=62.60,pa=97334,spd=0.00,ang=227.00,latd=9366,lond=7240]
+34m05s836: [#MET:syn=1,r=117,afc=-13,sid=0,md=1,te=13.04,hu=62.50,pa=97334,spd=0.05,ang=227.00,latd=9363,lond=7239]
+35m11s796: [#MET:syn=1,r=127,afc=0,sid=0,md=1,te=12.49,hu=63.90,pa=97314,spd=0.00,ang=227.00,latd=9362,lond=7239]
+36m17s825: [#MET:syn=1,r=151,afc=-13,sid=0,md=1,te=14.22,hu=61.45,pa=97436,alt=357,spd=1.60,ang=64.20,latd=9453,lond=7470,id=738,behlan=0,role=2,clk=11]
+37m23s819: [#MET:syn=1,r=193,afc=-13,sid=0,md=1,te=15.68,hu=55.65,pa=97450,spd=0.00,ang=165.90,latd=9473,lond=7544,su=3.80,pwr=7,fwver=252,mcnt=35]
+37m42s871: # STOP
+37m46s573: # STOP
