@@ -64,7 +64,7 @@ delay(10000) ;
 void loop() {
   // put your main code here, to run repeatedly:
   current_time = millis() ;
-  if (current_time - previous_time >= 1000)
+  if (current_time - previous_time >= 500)
   {
     Co2File = SD.open(filename, FILE_WRITE);
     DateTime Time = rtc.now();
