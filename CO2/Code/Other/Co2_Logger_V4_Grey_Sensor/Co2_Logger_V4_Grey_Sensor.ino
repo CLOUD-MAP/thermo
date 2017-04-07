@@ -42,7 +42,7 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Month            = String(now.month());
   Day              = String(now.day());
   EndHeading       = ".txt" ;
-  FILENAMESTRING   =  Month + Day + "_Grey" + EndHeading ;
+  FILENAMESTRING   =  Month + Day + EndHeading ;
   //filename[FILENAMESTRING.length()+1] ;
   FILENAMESTRING.toCharArray(filename, sizeof(filename));
 

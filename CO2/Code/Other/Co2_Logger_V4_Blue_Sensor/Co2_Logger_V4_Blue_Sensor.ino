@@ -18,7 +18,7 @@ unsigned long valCO2 ;
 
 //RTC**************************************************************************************************************
 RTC_DS3231 rtc;
-String Year, Month, Day, Hour, Minute, EndHeading, FILENAMESTRING;
+String Year, Month, Day, Hour, Minute,blue, EndHeading, FILENAMESTRING;
 char filename[9] ;
 //*****************************************************************************************************************
 
@@ -42,7 +42,8 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Month            = String(now.month());
   Day              = String(now.day());
   EndHeading       = ".txt" ;
-  FILENAMESTRING   =  Month + Day + "_Blue" + EndHeading ;
+ 
+  FILENAMESTRING   =  Month + Day +  EndHeading ;
   //filename[FILENAMESTRING.length()+1] ;
   FILENAMESTRING.toCharArray(filename, sizeof(filename));
 
