@@ -1,0 +1,75 @@
+# Session start 2017-04-13 14:24:38
+# offset=1492093478.136
+# timezone=0
+# version=4
+# install=890A195 30
+# software=A2.53
+# node_id=741
+00m00s000: [#MET:r=142,afc=0,id=741,md=0,pa=98036,evt=3]
+00m03s018: [#MET:r=143,afc=12,id=741,md=0,pa=98038,evt=3]
+00m06s127: [#MET:r=143,afc=12,id=741,md=0,pa=98034,behlan=0,evt=3]
+00m12s254: [#MET:r=138,afc=0,id=741,md=0,pa=98036,evt=3]
+00m15s301: [#MET:r=142,afc=12,id=741,md=0,pa=98040,behlan=0,role=2,clk=0,su=3.99,evt=3,pwr=7,fwver=252,mcnt=10,gpa=98030,hw=0]
+00m18s332: [#MET:r=140,afc=12,id=741,md=0,pa=98046,evt=3,ucnt=0]
+00m24s489: [#MET:r=141,afc=12,id=741,md=0,pa=98038,evt=3,cutalt=30000]
+00m27s552: [#MET:r=141,afc=0,id=741,md=0,pa=98034,evt=3]
+00m30s615: [#MET:r=143,afc=0,id=741,md=0,pa=98036,spd=0.00,ang=197.70,lat=34589564,lon=-97312489,spd1=0.00,ang1=41.00,spd2=0.00,ang2=41.00,evt=3]
+00m39s787: [#MET:r=140,afc=12,id=741,md=0,pa=98036,spd=0.00,ang=40.40,latd=9566,lond=7515,spd1=0.00,ang1=264.50,spd2=0.00,ang2=155.30,evt=3]
+00m42s850: [#MET:r=150,afc=0,id=741,md=0,pa=98040,spd=0.00,ang=91.60,lat=34589564,lon=-97312487,spd1=0.00,ang1=271.80,spd2=0.00,ang2=200.00,evt=3]
+00m46s459: [#MET:r=143,afc=12,id=741,md=0,behlan=0,role=2,clk=-3,su=4.00,evt=3,pwr=7,fwver=252,mcnt=20,gpa=98030,galt=360]
+00m56s147: [#MET:r=147,afc=0,id=741,md=0,pa=98044,spd=0.00,ang=115.50,latd=9563,lond=7512,spd1=0.00,ang1=0.20,spd2=0.00,ang2=209.30,evt=3,ucnt=0]
+00m56s147: # ENQUEUE: gs=1s2
+00m56s147: # EXE_NOW: gs=1s2
+00m56s397: [#TIM:id=741]
+00m56s397: # TIMEOUT dongle: gs=1s2
+02m00s462: [#MET:r=185,afc=12,id=741,md=0,alt=356,spd=0.90,ang=338.00,lat=34589549,lon=-97312433,su=3.98,behlan=0,logst=1,role=2,clk=0]
+02m00s462: # ENQUEUE: gs=1s2
+02m00s476: # EXE_NOW: gs=1s2
+02m00s634: [#TIM:id=741]
+02m00s634: # TIMEOUT dongle: gs=1s2
+02m01s884: [#PK:crc=S,q=B6,afc=0]
+02m06s088: [#FIND:id=741,q=B0]
+02m08s870: [#MET:syn=1,r=172,afc=12,sid=2,md=1,evt=10]
+02m11s884: [#MET:syn=1,r=162,afc=12,sid=2,md=1,alt=358,spd=3.00,ang=331.40,latd=9616,lond=7528,spd1=1.10,ang1=331.40,evt=10]
+02m14s884: [#MET:syn=1,r=153,afc=12,sid=2,md=1,alt=358,spd=4.20,ang=337.90,latd=9685,lond=7497,spd1=3.60,ang1=338.80]
+02m20s871: [#MET:syn=1,r=150,afc=0,sid=2,md=1,alt=358,spd=5.10,ang=336.50,latd=9754,lond=7460,spd1=4.30,ang1=334.40,evt=10]
+02m30s902: [#FIND:id=741,q=93]
+02m32s152: [#PK:crc=S,q=9F,afc=1870]
+02m35s183: [#MET:r=149,afc=12,id=741,md=0,pa=97682,spd=0.05,ang=48.00,latd=9886,lond=7527,spd1=1.10,ang1=48.00,spd2=1.50,ang2=48.00,pwr=7,fwver=252,mcnt=2]
+02m35s183: # ENQUEUE: gs=1s2
+02m35s183: # EXE_NOW: gs=1s2
+02m35s355: [#TIM:id=741]
+02m35s355: # TIMEOUT dongle: gs=1s2
+02m38s871: [#MET:syn=1,r=155,afc=12,sid=2,md=1,pa=97604,spd=0.15,ang=48.00,latd=9897,lond=7547,spd1=0.15,ang1=48.00,spd2=0.10,ang2=48.00,evt=3,gpa=97712,galt=374,hw=0]
+02m44s871: [#MET:syn=1,r=154,afc=12,sid=2,md=1,pa=97516,alt=380,spd=0.00,ang=48.00,latd=9911,lond=7592,spd1=0.10,ang1=48.00,spd2=0.10,ang2=48.00,spd3=0.10,ang3=48.00,evt=3,ucnt=0]
+02m50s871: [#MET:syn=1,r=149,afc=12,sid=2,md=1,pa=97392,spd=0.05,ang=48.00,latd=9912,lond=7594,spd1=0.00,ang1=48.00,spd2=0.00,ang2=48.00,spd3=0.00,ang3=48.00,spd4=0.10,ang4=41.00,evt=3]
+02m57s591: [#FIND:id=741,q=95]
+03m01s919: [#MET:r=144,afc=24,id=741,md=0,pa=97068,spd=1.60,ang=90.10,latd=9977,lond=7721,spd1=2.15,ang1=75.20,spd2=0.00,ang2=41.00,evt=3,pwr=7,fwver=252,mcnt=2]
+03m01s919: # ENQUEUE: gs=1s2
+03m01s919: # EXE_NOW: gs=1s2
+03m02s091: [#TIM:id=741]
+03m02s091: # TIMEOUT dongle: gs=1s2
+03m05s888: [#MET:syn=1,r=145,afc=0,sid=2,md=1,pa=97010,spd=2.20,ang=55.10,latd=0,lond=7778,spd1=1.55,ang1=78.90,spd2=1.55,ang2=82.80,gpa=97090,galt=382,hw=0,ucnt=0]
+03m08s873: [#MET:syn=1,r=145,afc=12,sid=2,md=1,pa=96918,alt=384,spd=2.80,ang=54.90,latd=24,lond=7824,spd1=3.10,ang1=53.70]
+03m11s857: [#MET:syn=1,r=140,afc=12,sid=2,md=1,pa=96844,spd=2.80,ang=62.30,latd=35,lond=7848]
+03m14s904: [#MET:syn=1,r=139,afc=24,sid=2,md=1,alt=386,spd=2.00,ang=49.40,latd=54,lond=7884,spd1=2.25,ang1=50.50,evt=3]
+03m22s982: [#MET:r=143,afc=12,id=741,md=0,su=3.99,behlan=0,logst=1,role=2,clk=0,evt=3,pwr=7,fwver=252,mcnt=1,gpa=0]
+03m22s982: # ENQUEUE: gs=1s2
+03m22s982: # EXE_NOW: gs=1s2
+03m23s170: [#TIM:id=741]
+03m23s170: # TIMEOUT dongle: gs=1s2
+03m31s482: [#FIND:id=741,q=93]
+03m32s185: [#PK:crc=S,q=92,afc=0]
+03m32s685: [#MET:r=145,afc=12,id=741,md=0,alt=384,spd=1.30,ang=196.20,lat=34589940,lon=-97312296,su=4.00,behlan=0,logst=1,role=2,clk=0]
+03m32s700: # ENQUEUE: gs=1s2
+03m32s700: # EXE_NOW: gs=1s2
+03m32s873: [#TIM:id=741]
+03m32s873: # TIMEOUT dongle: gs=1s2
+03m40s733: [#FIND:id=741,q=9C]
+03m42s014: [#MET:r=153,afc=0,id=741,md=0,su=3.99,behlan=0,logst=1,role=2,clk=0,evt=3,pwr=7,fwver=252,mcnt=1,gpa=0]
+03m42s014: # ENQUEUE: gs=1s2
+03m42s014: # EXE_NOW: gs=1s2
+03m42s186: [#TIM:id=741]
+03m42s186: # TIMEOUT dongle: gs=1s2
+12m55s291: # STOP
+12m57s448: # STOP
