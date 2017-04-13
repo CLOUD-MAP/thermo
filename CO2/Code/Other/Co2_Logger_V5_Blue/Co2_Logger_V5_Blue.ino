@@ -1,5 +1,5 @@
 
-//OU Co2 Logger V4 Grey Sensor
+//OU Co2 Logger V5 Blue Sensor
 
 #include <Wire.h>
 #include <SPI.h>
@@ -20,12 +20,13 @@ unsigned long valCO2 ;
 RTC_DS3231 rtc;
 String Year, Month, Day, Hour, Minute, FILENAMESTRING;
 const String EndHeading       = ".txt" ;
+int Day_int =0 ;
 char filename[9] ;
 //*****************************************************************************************************************
 
 //SD***************************************************************************************************************
 File Co2File ;
-unsigned long previous_time = 0, current_time = 0; 
+unsigned long previous_time = 0, current_time = 0;
 //*****************************************************************************************************************
 
 void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,18 +41,50 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
   DateTime now            = rtc.now();
-  Month            = String(now.month());
-  if (now.month() < 10) {
-    Month         = "0" + Month;
+  switch (now.month()) {
+    case 1:
+    Day_int = 0;
+    break ;
+    case 2:
+     Day_int = 31;
+    break ;
+    case 3:
+     Day_int = 59;
+    break ;
+    case 4:
+     Day_int = 90;
+    break ;
+    case 5:
+     Day_int = 120;
+    break ;
+    case 6:
+     Day_int = 151;
+    break ;
+    case 7:
+     Day_int = 181;
+    break ;
+    case 8:
+     Day_int = 212;
+    break ;
+    case 9:
+     Day_int = 243;
+    break ;
+    case 10:
+     Day_int = 273;
+    break ;
+    case 11:
+     Day_int = 304;
+    break ;
+    case 12:
+     Day_int = 334;
+    break ;
   }
-  Day              = String(now.day());
-  if (now.day() < 10) {
-    Day         = "0" + Day;
-  }
-  FILENAMESTRING   =  Month + Day + EndHeading ;
+
+  Day_int += now.day() ;
+  Day = String(Day_int) ; 
+  FILENAMESTRING   =  Day + "0" +EndHeading ;
   //filename[FILENAMESTRING.length()+1] ;
   FILENAMESTRING.toCharArray(filename, sizeof(filename));
-
   //*************************************************************************************************************
 
 
@@ -61,8 +94,8 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if (!SD.begin(10)) {
     return;
   }
-delay(10000) ;
-  
+  delay(10000) ;
+
   Create_File_Header();
   //*************************************************************************************************************
 } //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -70,7 +103,7 @@ delay(10000) ;
 void loop() {
   // put your main code here, to run repeatedly:
   current_time = millis() ;
-  if (current_time - previous_time >= 500)
+  if (current_time - previous_time >= 1000)
   {
     Co2File = SD.open(filename, FILE_WRITE);
     DateTime Time = rtc.now();
@@ -83,7 +116,7 @@ void loop() {
     }
     Co2File.print(Time.unixtime());
     Co2File.print("\t");
-    Co2File.println(valCO2+OFFSET);
+    Co2File.println(valCO2 + OFFSET);
     Serial.print(Time.unixtime());
     Serial.print("\t");
     Serial.println(valCO2);
@@ -107,7 +140,7 @@ void Create_File_Header() { // This function writes the file header for the Co2 
   Co2File.print(now.minute(), DEC);
   Co2File.print(':');
   Co2File.println(now.second(), DEC);
-  Co2File.println("Sensor is K30 FR from Co2meter.com, In Grey Box");
+  Co2File.println("Sensor is K30 FR from Co2meter.com, In Blue Box");
   Co2File.println("");
   Co2File.println("Time(Unix)\tCo2(ppm)");
   Co2File.close();
@@ -150,5 +183,4 @@ unsigned long getValue(byte packet[])
   unsigned long val = high * 256 + low; //Combine high byte and low byte with this formula to get value
   return val * valMultiplier;
 }
-
 

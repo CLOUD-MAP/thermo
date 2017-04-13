@@ -1,5 +1,5 @@
 
-//OU Co2 Logger V4 Grey Sensor
+//OU Co2 Logger V5 Grey Sensor
 
 #include <Wire.h>
 #include <SPI.h>
@@ -20,12 +20,13 @@ unsigned long valCO2 ;
 RTC_DS3231 rtc;
 String Year, Month, Day, Hour, Minute, FILENAMESTRING;
 const String EndHeading       = ".txt" ;
+int Day_int =0 ;
 char filename[9] ;
 //*****************************************************************************************************************
 
 //SD***************************************************************************************************************
 File Co2File ;
-unsigned long previous_time = 0, current_time = 0; 
+unsigned long previous_time = 0, current_time = 0;
 //*****************************************************************************************************************
 
 void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,15 +41,48 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
   DateTime now            = rtc.now();
-  Month            = String(now.month());
-  if (now.month() < 10) {
-    Month         = "0" + Month;
+  switch (now.month()) {
+    case 1:
+    Day_int = 0;
+    break ;
+    case 2:
+     Day_int = 31;
+    break ;
+    case 3:
+     Day_int = 59;
+    break ;
+    case 4:
+     Day_int = 90;
+    break ;
+    case 5:
+     Day_int = 120;
+    break ;
+    case 6:
+     Day_int = 151;
+    break ;
+    case 7:
+     Day_int = 181;
+    break ;
+    case 8:
+     Day_int = 212;
+    break ;
+    case 9:
+     Day_int = 243;
+    break ;
+    case 10:
+     Day_int = 273;
+    break ;
+    case 11:
+     Day_int = 304;
+    break ;
+    case 12:
+     Day_int = 334;
+    break ;
   }
-  Day              = String(now.day());
-  if (now.day() < 10) {
-    Day         = "0" + Day;
-  }
-  FILENAMESTRING   =  Month + Day + EndHeading ;
+
+  Day_int += now.day() ;
+  Day = String(Day_int) ; 
+  FILENAMESTRING   =  Day + "1" +EndHeading ;
   //filename[FILENAMESTRING.length()+1] ;
   FILENAMESTRING.toCharArray(filename, sizeof(filename));
 
@@ -61,8 +95,8 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if (!SD.begin(10)) {
     return;
   }
-delay(10000) ;
-  
+  delay(10000) ;
+
   Create_File_Header();
   //*************************************************************************************************************
 } //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -83,7 +117,7 @@ void loop() {
     }
     Co2File.print(Time.unixtime());
     Co2File.print("\t");
-    Co2File.println(valCO2+OFFSET);
+    Co2File.println(valCO2 + OFFSET);
     Serial.print(Time.unixtime());
     Serial.print("\t");
     Serial.println(valCO2);

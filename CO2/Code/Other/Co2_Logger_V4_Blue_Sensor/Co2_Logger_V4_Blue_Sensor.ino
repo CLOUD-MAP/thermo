@@ -18,13 +18,14 @@ unsigned long valCO2 ;
 
 //RTC**************************************************************************************************************
 RTC_DS3231 rtc;
-String Year, Month, Day, Hour, Minute,blue, EndHeading, FILENAMESTRING;
+String Year, Month, Day, Hour, Minute, FILENAMESTRING;
+const String EndHeading       = ".txt" ;
 char filename[9] ;
 //*****************************************************************************************************************
 
 //SD***************************************************************************************************************
 File Co2File ;
-unsigned long previous_time = 0, current_time = 0; 
+unsigned long previous_time = 0, current_time = 0;
 //*****************************************************************************************************************
 
 void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,10 +41,16 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   }
   DateTime now            = rtc.now();
   Month            = String(now.month());
+  if (now.month() < 10) {
+    Month         = "0" + Month;
+  }
   Day              = String(now.day());
-  EndHeading       = ".txt" ;
- 
-  FILENAMESTRING   =  Month + Day +  EndHeading ;
+  if (now.day() < 10) {
+    Day         = "0" + Day;
+  }
+  
+
+  FILENAMESTRING   =  Month + Day   + EndHeading ;
   //filename[FILENAMESTRING.length()+1] ;
   FILENAMESTRING.toCharArray(filename, sizeof(filename));
 
@@ -56,8 +63,8 @@ void setup() { //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   if (!SD.begin(10)) {
     return;
   }
-delay(10000) ;
-  
+  delay(10000) ;
+
   Create_File_Header();
   //*************************************************************************************************************
 } //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +85,7 @@ void loop() {
     }
     Co2File.print(Time.unixtime());
     Co2File.print("\t");
-    Co2File.println(valCO2+OFFSET);
+    Co2File.println(valCO2 + OFFSET);
     Serial.print(Time.unixtime());
     Serial.print("\t");
     Serial.println(valCO2);
